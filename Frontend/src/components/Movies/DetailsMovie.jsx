@@ -28,10 +28,10 @@ function DetailsMovie() {
         </div>
       </section>
 
-      <section>
-        <h1 className="text-white text-3xl font-Coda m-5">Reviews</h1>
-
+      <section className="flex flex-col justify-center items-center p-5">
+        <h1 className="text-white text-3xl font-Coda  w-full text">Reviews</h1>
         <Reviews/>
+        
       </section>
     </>
   );
