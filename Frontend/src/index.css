@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Coda:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
