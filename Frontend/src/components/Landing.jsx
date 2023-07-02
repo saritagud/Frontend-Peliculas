@@ -1,10 +1,13 @@
-/* import Header from "./Header" */
 import Carousel from "./Movies/Carousel";
 import CardMovie from "./Movies/CardMovie";
 import Searcher from "./Movies/Searcher";
+import Header from "./Header";
+import Footer from "./Footer";
+
 function Landing() {
   return (
     <>
+      <Header />
       <section>
         <Carousel />
       </section>
@@ -13,6 +16,8 @@ function Landing() {
         <Searcher />
         <CardMovie />
       </section>
+
+      <Footer />
     </>
   );
 }
