@@ -1,5 +1,7 @@
 import Header from "../Header";
 import Footer from "../Footer";
+import ModalEdit from "./ModalEdit";
+import ModalDelete from "./ModalDelete";
 
 function Dashboard() {
   return (
@@ -21,9 +23,10 @@ function Dashboard() {
         <div className="bg-white p-5 rounded-xl w-full flex justify-between font-Marcellus text-xl">
           <p>peliculas</p>
 
-          <div></div>
-
-          <p>peliculas</p>
+          <div className="flex gap-2">
+            <ModalEdit />
+            <ModalDelete />
+          </div>
         </div>
       </section>
       <Footer />

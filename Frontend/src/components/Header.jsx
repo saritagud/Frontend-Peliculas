@@ -1,53 +1,35 @@
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       <nav className="bg-verde">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 font-Coda text-white text-2xl">
-                <h1>ASAL Movies</h1>
-              </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    href="#"
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Dashboard
-                  </a>
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-end w-full h-20">
+            <div className="flex items-center justify-between w-full">
+              <img src="\src\assets\logo.png" className="w-[15%]"/>
+              <div className="hidden md:block w-full">
+                <div className="ml-10 flex justify-end items-end w-full ">
+                <Link to={"/"}>
+                  <button className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left">
+                    Inicio
+                  </button>
+                </Link>
 
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Team
-                  </a>
+                <Link to={"/registro"}>
+                  <button className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left">
+                    Registro
+                  </button>
+                </Link>
 
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Projects
-                  </a>
-
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Calendar
-                  </a>
-
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Reports
-                  </a>
+                <Link to={"/login"}>
+                  <button className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left">
+                    Inicio
+                  </button>
+                </Link>
                 </div>
               </div>
             </div>
@@ -59,7 +41,7 @@ function Nav() {
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
-                <span className="sr-only">Open main menu</span>
+                
                 {!isOpen ? (
                   <svg
                     className="block h-6 w-6"
@@ -110,37 +92,28 @@ function Nav() {
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <Link to={"/"}>
+                  <button className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left">
+                    Inicio
+                  </button>
+                </Link>
 
-                <a
-                  href="/"
-                  className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus"
-                >
-                  Inicio
-                </a>
+                <Link to={"/registro"}>
+                  <button className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left">
+                    Registro
+                  </button>
+                </Link>
 
-                <a
-                  href="/registro"
-                  className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus"
-                >
-                  Registro
-                </a>
-
-                <a
-                  href="/login"
-                  className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus"
-                >
-                  Login
-                </a>
-
-                
+                <Link to={"/login"}>
+                  <button className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left">
+                    Login
+                  </button>
+                </Link>
               </div>
             </div>
           )}
         </Transition>
       </nav>
-
-      
-      
     </div>
   );
 }
