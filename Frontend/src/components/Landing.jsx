@@ -1,4 +1,5 @@
-/* import Header from "./Header" */
+import Header from "./Header";
+import Footer from "./Footer";
 import Carousel from "./Movies/Carousel";
 import CardMovie from "./Movies/CardMovie";
 import Searcher from "./Movies/Searcher";
@@ -6,6 +7,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchMovies } from "../features/movies/moviesSlice";
 import { Link } from "react-router-dom";
+
 function Landing() {
   const movies = useSelector(state => state.movies)
   const dispatch = useDispatch()
@@ -18,6 +20,7 @@ function Landing() {
   
   return (
     <>
+      <Header />
       <section>
         <Carousel />
       </section>
@@ -37,6 +40,8 @@ function Landing() {
           ))
         )}
       </section>
+
+      <Footer />
     </>
   );
 }

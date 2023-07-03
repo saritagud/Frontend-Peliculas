@@ -1,6 +1,6 @@
 import { Carousel as ResponsiveCarousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
+import ButtonDetails from "./ButtonDetails";
 function Carousel() {
   return (
     <>
@@ -16,7 +16,7 @@ function Carousel() {
             <h1 className="text-white text-center  mb-8 font-Coda -mt-20  text-4xl text">
               Guardianes de la galaxia
             </h1>
-          <button className="text-white bg-verde p-3 rounded-xl font-Marcellus text-xl mb-5"> <a href="/detalles">Ver mas</a> </button>
+          <ButtonDetails/>
           </div>
         </section>
       </ResponsiveCarousel>
