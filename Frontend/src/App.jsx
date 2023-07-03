@@ -13,7 +13,7 @@ function App() {
         <Route index element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Register />}></Route>
-        <Route path="/detalles" element={<DetailsMovie />} />
+        <Route path="/detalles/:movieID" element={<DetailsMovie />} />
         <Route path="/administrador" element={<Dashboard />} />
       </Routes>
     </div>
