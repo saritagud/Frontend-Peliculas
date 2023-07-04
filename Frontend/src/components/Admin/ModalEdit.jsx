@@ -3,6 +3,7 @@ import { FaWindowClose } from 'react-icons/fa'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { editMovie } from '../../features/movies/moviesSlice'
+import PropTypes from 'prop-types';
 
 function ModalEdit({ data }) {
    const [isOpen, setIsOpen] = useState(false)
@@ -162,6 +163,10 @@ function ModalEdit({ data }) {
          )}
       </>
    )
+}
+
+ModalEdit.propTypes = {
+   data: PropTypes.object.isRequired,
 }
 
 export default ModalEdit

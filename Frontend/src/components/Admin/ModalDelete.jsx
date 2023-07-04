@@ -2,6 +2,7 @@ import { FaTrash } from 'react-icons/fa'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteMovie } from '../../features/movies/moviesSlice'
+import PropTypes from 'prop-types';
 
 function ModalDelete({ id }) {
    const [isOpen, setIsOpen] = useState(false)
@@ -44,6 +45,10 @@ function ModalDelete({ id }) {
          )}
       </>
    )
+}
+
+ModalDelete.propTypes = {
+   id: PropTypes.string.isRequired,
 }
 
 export default ModalDelete

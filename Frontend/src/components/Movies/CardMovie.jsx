@@ -1,5 +1,6 @@
 import { formatearFecha } from '../../logic/funciones'
 import ButtonDetails from './ButtonDetails'
+import PropTypes from 'prop-types';
 
 function CardMovie({ data }) {
    const { _id, imagen, titulo, fechaPublicacion } = data
@@ -20,6 +21,10 @@ function CardMovie({ data }) {
          </section>
       </>
    )
+}
+
+CardMovie.propTypes = {
+   data: PropTypes.object.isRequired,
 }
 
 export default CardMovie
