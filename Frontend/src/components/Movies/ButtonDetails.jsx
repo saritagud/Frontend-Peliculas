@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 function ButtonDetails({ movieID }) {
    return (
@@ -10,6 +11,10 @@ function ButtonDetails({ movieID }) {
          </Link>
       </>
    )
+}
+
+ButtonDetails.propTypes = {
+   movieID: PropTypes.string.isRequired,
 }
 
 export default ButtonDetails

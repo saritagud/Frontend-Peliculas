@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { fetchMovies } from '../features/movies/moviesSlice'
+import PropTypes from 'prop-types';
 
 function Pager({ currentPage, totalPages }) {
    const dispatch = useDispatch()
@@ -52,4 +53,8 @@ function Pager({ currentPage, totalPages }) {
    )
 }
 
+Pager.propTypes = {
+   currentPage: PropTypes.number.isRequired,
+   totalPages: PropTypes.number.isRequired
+}
 export default Pager

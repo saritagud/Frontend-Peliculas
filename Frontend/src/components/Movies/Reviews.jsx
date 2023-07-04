@@ -1,7 +1,8 @@
 /* FaArrowLeft */
+import PropTypes from 'prop-types';
 
 function Reviews({ review }) {
-  const { _id, usuario, contenido } = review
+  const { usuario, contenido } = review
   return (
     <>
       <section className="flex flex-col justify-center items-center text-white w-[80%] p-5 mt-5 border-r-2 border-b-2 border-opacity-20 border-solid border-black">
@@ -13,6 +14,10 @@ function Reviews({ review }) {
       </section>
     </>
   );
+}
+
+Reviews.propTypes = {
+  review: PropTypes.object.isRequired,
 }
 
 export default Reviews;
