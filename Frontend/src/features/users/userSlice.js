@@ -10,7 +10,7 @@ export const userSlice = createSlice({
       }
    },
    reducers: {
-      logout: (state, action) => {
+      logout: (state) => {
          return state.user = {
             token: '',
             usuario: '',
@@ -20,10 +20,26 @@ export const userSlice = createSlice({
    },
    extraReducers(builder) {
       builder.addCase(login.fulfilled, (state, action) => {
-         return action.payload
+         const { token, usuario, rol } = action.payload;
+         return {
+            ...state,
+            user: {
+               token,
+               usuario,
+               rol
+            }
+         }
       })
       builder.addCase(register.fulfilled, (state, action) => {
-         return action.payload
+         const { token, usuario, rol } = action.payload;
+         return {
+            ...state,
+            user: {
+               token,
+               usuario,
+               rol
+            }
+         }
       })
    }
 })
