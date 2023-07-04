@@ -37,16 +37,26 @@ function ModalEdit({ data }) {
 
    const handleSubmit = e => {
       e.preventDefault()
-      console.log(movie)
+
+      if (movie.image === null) return console.error('Debe subir una imagen de la pelicula')
+      if (movie.titulo === '') return console.error('El campo "Titulo" no puede estar vacio')
+      if (movie.sinopsis === '') return console.error('El campo "Sinopsis" no puede estar vacio')
+      if (movie.genero === '') return console.error('El campo "genero" no puede estar vacio')
+      if (movie.actoresPrincipales === '') return console.error('El campo "Actores Principales" no puede estar vacio')
+      if (movie.directores === '') return console.error('El campo "Directores" no puede estar vacio')
+      if (movie.franquicia === '') return console.error('El campo "Franquicia" no puede estar vacio')
+      if (movie.fechaPublicacion === '') return console.error('El campo "Fecha de Publicacion" no puede estar vacio')
+
       const body = new FormData()
-      movie.image !== '' && body.append('image', movie.image)
-      movie.titulo !== '' && body.append('titulo', movie.titulo)
-      movie.sinopsis !== '' && body.append('sinopsis', movie.sinopsis)
-      movie.genero !== '' && body.append('genero', movie.genero)
-      movie.actoresPrincipales !== '' && body.append('actoresPrincipales', movie.actoresPrincipales)
-      movie.directores !== '' && body.append('directores', movie.directores)
-      movie.franquicia !== '' && body.append('franquicia', movie.franquicia)
-      movie.fechaPublicacion !== '' && body.append('fechaPublicacion', movie.fechaPublicacion)
+      movie.image !== data.image && body.append('image', movie.image)
+      movie.titulo !== data.titulo && body.append('titulo', movie.titulo)
+      movie.sinopsis !== data.sinopsis && body.append('sinopsis', movie.sinopsis)
+      movie.genero !== data.genero && body.append('genero', movie.genero)
+      movie.actoresPrincipales !== data.actoresPrincipales && body.append('actoresPrincipales', movie.actoresPrincipales)
+      movie.directores !== data.directores && body.append('directores', movie.directores)
+      movie.franquicia !== data.franquicia && body.append('franquicia', movie.franquicia)
+      movie.fechaPublicacion !== data.fechaPublicacion && body.append('fechaPublicacion', movie.fechaPublicacion)
+
       const datos = {
          body,
          movieID: data._id
@@ -109,7 +119,7 @@ function ModalEdit({ data }) {
                   <label className='w-full text-xl'>Fecha de publicación</label>
                   <input
                      className='w-full  rounded-xl p-2 text-black text-lg'
-                     type='text'
+                     type='date'
                      name='fechaPublicacion'
                      value={movie.fechaPublicacion}
                      onChange={handleChange}
