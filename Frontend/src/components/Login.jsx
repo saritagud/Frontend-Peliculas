@@ -1,28 +1,56 @@
-function Login(){
-    return(
-        <>
-             <Header />
-             <section className="flex flex-col justify-center items-center gap-10 min-h-screen">
-             <img/>
-                <h1 className="font-Coda text-3xl text-white mt-10">Login</h1>
+import { useNavigate } from 'react-router-dom'
+import Footer from './Footer'
+import Header from './Header'
+import { useDispatch } from 'react-redux'
+import { login } from '../features/users/userSlice'
 
-                <form className="flex flex-col justify-center items-center p-5 text-white font-Marcellus gap-3">
-                    <label className="w-full text-xl">Usuario</label>
-                    <input className="w-full  rounded-xl p-2 text-black text-lg" type="text"></input>
+function Login() {
+   const dispatch = useDispatch()
+   const navegar = useNavigate()
 
+   const handleSubmit = e => {
+      const target = e.target
+      e.preventDefault()
+      const user = {
+         usuario: target.usuario.value,
+         contraseña: target.contraseña.value
+      }
+      dispatch(login(user))
+      navegar('/')
+   }
+   return (
+      <>
+         <Header />
+         <section className='flex flex-col justify-center items-center gap-10 min-h-screen'>
+            <img />
+            <h1 className='font-Coda text-3xl text-white mt-10'>Login</h1>
 
-                    <label className="w-full text-xl">Contraseña</label>
-                    <input className="w-full  rounded-xl p-2 text-black text-lg" type="password"></input>
+            <form
+               className='flex flex-col justify-center items-center p-5 text-white font-Marcellus gap-3'
+               onSubmit={handleSubmit}
+            >
+               <label className='w-full text-xl'>Usuario</label>
+               <input
+                  className='w-full  rounded-xl p-2 text-black text-lg'
+                  name='usuario'
+                  type='text'
+               />
 
-          <button className="bg-verde p-3 text-xl rounded-xl m-8">
-            Registrarse
-          </button>
-        </form>
-      </section>
+               <label className='w-full text-xl'>Contraseña</label>
+               <input
+                  className='w-full  rounded-xl p-2 text-black text-lg'
+                  name='contraseña'
+                  type='password'
+               />
 
-      <Footer />
-    </>
-  );
+               <button className='bg-verde p-3 text-xl rounded-xl m-8'>
+                  Registrarse
+               </button>
+            </form>
+         </section>
+         <Footer />
+      </>
+   )
 }
 
-export default Login;
+export default Login
