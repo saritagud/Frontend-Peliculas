@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovies } from '../../features/movies/moviesSlice'
 import { useEffect } from 'react'
 import ModalCreate from './ModalCreate'
+import Pager from '../Pager'
 
 function Dashboard() {
    const movies = useSelector(state => state.movies)
@@ -52,6 +53,12 @@ function Dashboard() {
                      </div>
                   </div>
                ))
+            )}
+            {movies.currentPage && (
+               <Pager
+                  currentPage={movies.currentPage}
+                  totalPages={movies.totalPages}
+               />
             )}
          </section>
          <Footer />

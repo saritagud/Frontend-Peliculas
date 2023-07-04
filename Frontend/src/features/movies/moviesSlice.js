@@ -13,7 +13,7 @@ export const moviesSlice = createSlice({
       builder.addCase(addMovie.fulfilled, (state, action) => {
          return {
             ...state,
-            movies: [...state.movies, action.payload]
+            movies: [action.payload, ...state.movies.slice(0, state.movies.length - 1)]
          }
       })
       builder.addCase(editMovie.fulfilled, (state, action) => {
@@ -45,8 +45,8 @@ export const moviesSlice = createSlice({
 // Por si llega hacer falta un action ⬇️
 // export const {  } = moviesSlice.actions
 
-export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
-   const response = await fetch('http://localhost:3000/movies')
+export const fetchMovies = createAsyncThunk('movies/fetchMovies', async (page = 1) => {
+   const response = await fetch(`http://localhost:3000/movies?page=${page}`)
    return await response.json()
 })
 
