@@ -16,7 +16,7 @@ function Nav() {
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-end w-full h-20">
             <div className="flex items-center justify-between w-full">
-              <img src="\src\assets\logo.png" className="w-[40%]" />
+              <img src="\src\assets\logo.png" className="w-[40%] sm:w-[30%]" />
               <div className="hidden md:block w-full">
                 <div className="ml-10 flex justify-end items-end w-full ">
                   <NavLink
@@ -93,7 +93,7 @@ function Nav() {
               >
                 {!isOpen ? (
                   <svg
-                    className="block h-6 w-6"
+                    className="block h-15 w-10"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

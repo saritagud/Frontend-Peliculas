@@ -21,7 +21,7 @@ function Pager({ currentPage, totalPages }) {
    }
 
    return (
-      <article className='flex justify-center items-center gap-4 my-5'>
+      <article className='flex justify-center items-center gap-4 my-5 sm:my-10'>
          <button
             className={`${
                hasPrev ? 'opacity-0 pointer-events-none' : ''

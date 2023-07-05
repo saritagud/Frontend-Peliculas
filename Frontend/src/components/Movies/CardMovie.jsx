@@ -6,7 +6,7 @@ function CardMovie({ data }) {
   const { _id, imagen, titulo, fechaPublicacion } = data;
   return (
     <>
-      <section className=" m-6 text-white w-[60%] ">
+      <section className=" m-6 text-white w-[60%] sm:w-[50%] ">
         <div className=" w-full">
           <img src={imagen} className="rounded-xl" />
           
@@ -15,7 +15,7 @@ function CardMovie({ data }) {
           </div>
         </div>
 
-        <h1 className="font-Coda mt-16 text-left w-full tracking-wide">
+        <h1 className="font-Coda mt-16 text-left w-full tracking-wide sm:text-xl">
         {titulo}
         </h1>
         <h2 className="font-Marcellus w-full mt-2">          {formatearFecha(fechaPublicacion)}</h2>
