@@ -50,7 +50,7 @@ function DetailsMovie() {
               onClick={() => navegar("/")}
             />
             <div className="flex flex-col justify-center items-center p-10 w-full h-full text-white ">
-              <img src={imagen} className="rounded-xl" alt={titulo} />
+              <img src={imagen} className="rounded-xl sm:w-[70%]" alt={titulo} />
 
               <h1 className="text-left w-full text-2xl font-Coda mt-3">
                 {titulo}

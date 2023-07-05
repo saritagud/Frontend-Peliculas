@@ -24,8 +24,8 @@ function Dashboard() {
   return (
     <>
       <Header />
-      <section className="min-h-screen flex flex-col items-center p-5 gap-5 w-full">
-        <h1 className="text-white text-3xl font-Coda mt-10">Admin</h1>
+      <section className="min-h-screen flex flex-col items-center p-5 gap-5 w-full sm:p-14 sm:gap-8">
+        <h1 className="text-white text-3xl font-Coda mt-10 sm:text-4xl ">Admin</h1>
         <div className=" flex justify-end w-full gap-5">
           <button className="bg-verde p-2 rounded-xl text-lg font-Marcellus text-white">
             Peliculas

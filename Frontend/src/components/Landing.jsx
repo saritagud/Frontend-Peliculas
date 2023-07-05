@@ -25,11 +25,13 @@ function Landing() {
 
   return (
     <>
+    <div>
+
       <Toaster />
       <Header />
       <Carousel />
 
-      <section className="flex flex-col justify-center items-center">
+      <section className="flex flex-col justify-center items-center ">
         <Searcher />
         {status === "loading" ? (
           <div className="fixed bg-black bg-opacity-90 w-full h-screen flex justify-center items-center z-10">
@@ -53,6 +55,7 @@ function Landing() {
           totalPages={movies.totalPages}
         />
       </section>
+    </div>
       <Footer />
     </>
   );
