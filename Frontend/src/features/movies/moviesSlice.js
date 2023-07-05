@@ -26,7 +26,10 @@ export const moviesSlice = createSlice({
     });
     builder.addCase(addMovie.fulfilled, (state, action) => {
       state.status = "succeeded";
-      state.movies = action.payload;
+      return {
+        ...state,
+        movies: [action.payload, ...state.movies.slice(0, state.movies.length - 1)]
+     }
     });
     builder.addCase(addMovie.rejected, (state, action) => {
       state.status = "failed";
@@ -86,6 +89,7 @@ export const moviesSlice = createSlice({
     builder.addCase(fetchMoviesLastest.rejected, (state, action) => {
       state.status = "failed";
       state.error = action.error.message;
+      console.log(state.error)
     });
   },
 });

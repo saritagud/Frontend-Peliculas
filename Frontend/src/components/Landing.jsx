@@ -16,18 +16,22 @@ function Landing() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (status === "idle") {
+    if (movies) {
       dispatch(fetchMovies());
     }
-  }, [dispatch, status]);
+  }, []);
+
+  console.log(movies);
 
   return (
     <>
+    <div>
+
       <Toaster />
       <Header />
       <Carousel />
 
-      <section className="flex flex-col justify-center items-center">
+      <section className="flex flex-col justify-center items-center ">
         <Searcher />
         {status === "loading" ? (
           <div className="fixed bg-black bg-opacity-90 w-full h-screen flex justify-center items-center z-10">
@@ -37,8 +41,12 @@ function Landing() {
           toast.error("Ha ocurrido un error")
         ) : movies.length === 0 ? (
           <h1 className="text-white text-3xl font-Coda">No hay peliculas</h1>
-        ) : (
+        ) : movies.movies ? (
           movies.movies.map((movie) => (
+            <CardMovie key={movie._id} data={movie} />
+          ))
+        ) : (
+          movies.latestMovies.map((movie) => (
             <CardMovie key={movie._id} data={movie} />
           ))
         )}
@@ -47,6 +55,7 @@ function Landing() {
           totalPages={movies.totalPages}
         />
       </section>
+    </div>
       <Footer />
     </>
   );
