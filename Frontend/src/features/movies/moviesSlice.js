@@ -140,7 +140,7 @@ export const deleteMovie = createAsyncThunk(
 export const fetchMoviesLastest = createAsyncThunk(
   "movies/fetchMoviesLastest",
   async () => {
-    const response = await fetch("http://localhost:3000/filter/latestMovies");
+    const response = await fetch("http://localhost:3000/movies/filter/latestMovies");
     return await response.json();
   }
 );
