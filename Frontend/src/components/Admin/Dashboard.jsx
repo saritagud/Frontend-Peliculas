@@ -10,10 +10,9 @@ import Pager from "../Pager";
 import { InfinitySpin } from "react-loader-spinner";
 
 function Dashboard() {
+  const {movies, status} = useSelector((state) => state.movies);
   const dispatch = useDispatch();
-  const movies = useSelector((state) => state.movies.movies);
-
-  const status = useSelector((state) => state.movies.status);
+  console.log(movies)
 
   useEffect(() => {
     if (movies) {
@@ -45,21 +44,8 @@ function Dashboard() {
           </div>
         ) : movies.length === 0 ? (
           <h1>No hay peliculas</h1>
-        ) : movies.movies ? (
-          movies.movies.map((movie) => (
-            <div
-              key={movie._id}
-              className="bg-white p-5 rounded-xl w-full flex justify-between font-Marcellus text-xl"
-            >
-              <p>{movie.titulo}</p>
-              <div className="flex gap-2">
-                <ModalEdit data={movie} />
-                <ModalDelete id={movie._id} />
-              </div>
-            </div>
-          ))
         ) : (
-          movies.latestMovies.map((movie) => (
+          movies.movies.map((movie) => (
             <div
               key={movie._id}
               className="bg-white p-5 rounded-xl w-full flex justify-between font-Marcellus text-xl"

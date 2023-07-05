@@ -9,35 +9,53 @@ export const moviesSlice = createSlice({
   },
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(fetchMovies.pending, (state, action) => {
-      state.status = "loading";
+    builder.addCase(fetchMovies.pending, (state) => {
+      return {
+          ...state,
+          status: 'loading'
+      }
     });
     builder.addCase(fetchMovies.fulfilled, (state, action) => {
-      state.status = "succeeded";
-      state.movies = action.payload;
+      return {
+          ...state,
+          status: "succeeded",
+          movies: action.payload
+      }
     });
     builder.addCase(fetchMovies.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
+      return {
+          ...state,
+          status: 'failed',
+          error: action.error.message
+      }
     });
 
-    builder.addCase(addMovie.pending, (state, action) => {
-      state.status = "loading";
+    builder.addCase(addMovie.pending, (state) => {
+      return {
+          ...state,
+          status: 'loading'
+      }
     });
     builder.addCase(addMovie.fulfilled, (state, action) => {
-      state.status = "succeeded";
       return {
         ...state,
+        status: "succeeded",
         movies: [action.payload, ...state.movies.slice(0, state.movies.length - 1)]
      }
     });
     builder.addCase(addMovie.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
+      return {
+          ...state,
+          status: 'failed',
+          error: action.error.message
+      }
     });
 
-    builder.addCase(editMovie.pending, (state, action) => {
-      state.status = "loading";
+    builder.addCase(editMovie.pending, (state) => {
+      return {
+          ...state,
+          status: 'loading'
+      }
     });
     builder.addCase(editMovie.fulfilled, (state, action) => {
       state.status = "succeeded";
@@ -58,38 +76,34 @@ export const moviesSlice = createSlice({
       };
     });
     builder.addCase(editMovie.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
+      return {
+          ...state,
+          status: 'failed',
+          error: action.error.message
+      }
     });
 
-    builder.addCase(deleteMovie.pending, (state, action) => {
-      state.status = "loading";
+    builder.addCase(deleteMovie.pending, (state) => {
+      return {
+          ...state,
+          status: 'loading'
+      }
     });
     builder.addCase(deleteMovie.fulfilled, (state, action) => {
-      state.status = "succeeded";
       return {
         ...state,
+        status: "succeeded",
         movies: state.movies.filter(
           (movie) => movie._id !== action.payload._id
         ),
       };
     });
     builder.addCase(deleteMovie.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
-    });
-
-    builder.addCase(fetchMoviesLastest.pending, (state, action) => {
-      state.status = "loading";
-    });
-    builder.addCase(fetchMoviesLastest.fulfilled, (state, action) => {
-      state.status = "succeeded";
-      state.movies = action.payload;
-    });
-    builder.addCase(fetchMoviesLastest.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
-      console.log(state.error)
+      return {
+          ...state,
+          status: 'failed',
+          error: action.error.message
+      }
     });
   },
 });
@@ -137,14 +151,6 @@ export const deleteMovie = createAsyncThunk(
         method: "DELETE",
       }
     );
-    return await response.json();
-  }
-);
-
-export const fetchMoviesLastest = createAsyncThunk(
-  "movies/fetchMoviesLastest",
-  async () => {
-    const response = await fetch("http://localhost:3000/movies/filter/latestMovies");
     return await response.json();
   }
 );
