@@ -3,23 +3,25 @@ import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../features/users/userSlice";
 import { toast, Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const dispatch = useDispatch();
-
-  const status = useSelector((state) => state.status);
+  const navegar = useNavigate();
+  const status = useSelector((state) => state.user.status);
 
   const handleSubmit = (e) => {
     const target = e.target;
     e.preventDefault();
-    
+
     const user = {
       usuario: target.usuario.value,
       contraseña: target.contraseña.value,
     };
     dispatch(login(user));
-    if (status == "succeeded") {
+    if (status.login == "succeeded") {
       toast.success("Bienvenida/o");
+      navegar("/");
     }
   };
   return (
@@ -27,7 +29,7 @@ function Login() {
       <Toaster />
       <Header />
       <section className="flex flex-col justify-center items-center gap-10 min-h-screen">
-        <img src="src\assets\logo.png" className="w-[50%] -mb-10"/>
+        <img src="src\assets\logo.png" className="w-[50%] -mb-10" />
         <h1 className="font-Coda text-3xl text-white sm:text-4xl">Login</h1>
 
         <form

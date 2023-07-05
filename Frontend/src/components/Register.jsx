@@ -8,7 +8,7 @@ import { toast, Toaster } from "react-hot-toast";
 function Register() {
   const dispatch = useDispatch();
   const navegar = useNavigate();
-  const status = useSelector((state) => state.status);
+  const status = useSelector((state) => state.user.status);
 
   const handleSubmit = (e) => {
     const target = e.target;
@@ -19,9 +19,9 @@ function Register() {
       contraseña: target.contraseña.value,
     };
     dispatch(register(user));
-    navegar("/");
-    if (status == "succeeded") {
+    if (status.register == "succeeded") {
       toast.success("Bienvenida/o");
+      navegar("/");
     }
   };
   return (
