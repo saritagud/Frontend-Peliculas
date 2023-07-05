@@ -33,7 +33,7 @@ function Carousel() {
         )  : movies.length === 0 ? (
           <h1 className="text-white text-3xl font-Coda">No hay peliculas</h1>
         ) : (
-          movies.movies.map((movie) => (
+          movies.movies? movies.movies.map((movie) => (
             <section
               key={movie._id}
               className="bg-fondo bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-10 sm:mb-14"
@@ -46,7 +46,20 @@ function Carousel() {
                 <ButtonDetails movieID={movie._id} />
               </div>
             </section>
-          ))
+          )):(movies.latestMovies.map((movie)=>(
+            <section
+              key={movie._id}
+              className="bg-fondo bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-10 sm:mb-14"
+            >
+              <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%]">
+                <img src={movie.imagen} className="p-9 rounded-xl " />
+                <h1 className="text-white text-center  mb-8 font-Coda -mt-20  text-4xl text">
+                  {movie.titulo}
+                </h1>
+                <ButtonDetails movieID={movie._id} />
+              </div>
+            </section>
+          )))
         )}
       </ResponsiveCarousel>
     </>

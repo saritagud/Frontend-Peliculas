@@ -8,7 +8,7 @@ function CardMovie({ data }) {
     <>
       <section className=" m-6 text-white w-[60%] sm:w-[50%] ">
         <div className=" w-full">
-          <img src={imagen} className="rounded-xl" />
+          <img src={imagen} className="rounded-xl cursor-pointer" />
           
           <div className=" flex justify-center items-end cursor-pointer opacity-0 transition-all duration-500 w-full hover:opacity-100 h-full -mt-32">
           <ButtonDetails movieID={_id} />
