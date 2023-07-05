@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const movieSlice = createSlice({
-  name: "movie",
-  initialState: {
-    movie: [],
+export const dataAdminSlice = createSlice({
+  name: "dataAdmin",
+  initiaState: {
+    dataAdmin: [],
     status: "idle",
     error: null,
   },
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(fetchMovie.pending, (state) => {
+    builder.addCase(fetchMovie.pending, (state, action) => {
       state.status = "loading";
     });
     builder.addCase(fetchMovie.fulfilled, (state, action) => {
@@ -24,7 +24,7 @@ export const movieSlice = createSlice({
 });
 
 // Por si llega hacer falta un action ⬇️
-// export const {  } = movieSlice.actions
+// export const {  } = dataAdminSlice.actions
 
 export const fetchMovie = createAsyncThunk(
   "movie/fetchMovies",
@@ -33,4 +33,4 @@ export const fetchMovie = createAsyncThunk(
     return await response.json();
   }
 );
-export default movieSlice.reducer;
+export default dataAdminSlice.reducer;

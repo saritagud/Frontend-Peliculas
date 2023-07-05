@@ -20,7 +20,7 @@ function App() {
         <Route
           path="/administrador"
           element={
-            <ProtectedRouter isAllowed={user.user.rol === "admin"}>
+            <ProtectedRouter isAllowed={true}>
               <Dashboard />
             </ProtectedRouter>
           }

@@ -11,8 +11,7 @@ import { InfinitySpin } from "react-loader-spinner";
 import { toast, Toaster } from "react-hot-toast";
 
 function Landing() {
-  const movies = useSelector((state) => state.movies.movies);
-  const status = useSelector((state) => state.movies.status);
+  const {movies, status} = useSelector((state) => state.movies);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,7 +20,7 @@ function Landing() {
     }
   }, []);
 
-  console.log(movies);
+  // console.log(movies);
 
   return (
     <>
@@ -41,19 +40,17 @@ function Landing() {
           toast.error("Ha ocurrido un error")
         ) : movies.length === 0 ? (
           <h1 className="text-white text-3xl font-Coda">No hay peliculas</h1>
-        ) : movies.movies ? (
-          movies.movies.map((movie) => (
-            <CardMovie key={movie._id} data={movie} />
-          ))
         ) : (
-          movies.latestMovies.map((movie) => (
-            <CardMovie key={movie._id} data={movie} />
-          ))
+          <>
+            {movies.movies.map((movie) => (
+              <CardMovie key={movie._id} data={movie} />
+            ))}
+            <Pager
+              currentPage={movies.currentPage}
+              totalPages={movies.totalPages}
+            />
+          </>
         )}
-        <Pager
-          currentPage={movies.currentPage}
-          totalPages={movies.totalPages}
-        />
       </section>
     </div>
       <Footer />
