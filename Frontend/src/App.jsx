@@ -9,20 +9,25 @@ import ProtectedRouter from "./components/Admin/ProtectedRouter";
 import "./index.css";
 
 function App() {
-   const user = useSelector(state => state.user)
-   return (
-      <div className="min-h-screen bg-fondo">
-         <Routes>
-         <Route index element={<Landing />} />
-         <Route path="/login" element={<Login />} />
-         <Route path="/registro" element={<Register />}/>
-         <Route path="/detalles/:movieID" element={<DetailsMovie />} />
-         <Route path="/administrador" element={<ProtectedRouter isAllowed={user.user.rol === 'admin'}>
-            <Dashboard/>
-         </ProtectedRouter>} />
-         </Routes>
-      </div>
-   );
+  const user = useSelector((state) => state.user);
+  return (
+    <div className="min-h-screen bg-fondo">
+      <Routes>
+        <Route index element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Register />} />
+        <Route path="/detalles/:movieID" element={<DetailsMovie />} />
+        <Route
+          path="/administrador"
+          element={
+            <ProtectedRouter isAllowed={user.user.rol === "admin"}>
+              <Dashboard />
+            </ProtectedRouter>
+          }
+        />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

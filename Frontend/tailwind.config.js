@@ -9,6 +9,7 @@ export default {
       colors: {
         fondo: "#1D1E22",
         verde: "#26BF21",
+        "verde2": "#33A621"
       },
       fontFamily: {
         Coda: ["Coda", "cursiva"],
