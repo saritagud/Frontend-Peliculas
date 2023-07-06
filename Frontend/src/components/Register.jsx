@@ -57,7 +57,7 @@ function Register() {
             type="password"
           />
 
-          <button className="bg-verde p-3 text-xl rounded-xl m-8 sm:text-2xl md:mb-20 xl:mb-40 2xl:text-2xl 3xl:p-5">
+          <button className="bg-verde p-3 text-xl rounded-xl m-8 sm:text-2xl md:mb-20 xl:mb-40 2xl:text-3xl 3xl:p-5 ur:p-6">
             {status.register === "loading" ? "Registrando..." : "Registrar"}
           </button>
         </form>

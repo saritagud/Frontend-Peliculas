@@ -38,7 +38,7 @@ function Carousel() {
               key={movie._id}
               className="bg-fondo bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-10 sm:mb-14 "
             >
-              <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:flex-row xl:w-[40%] xl:gap-8">
+              <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:flex-row xl:w-[40%] xl:gap-8 ur:w-[30%]">
                 <img
                   src={movie.imagen}
                   className="p-9 rounded-xl  lg:rounded-3xl"
@@ -58,7 +58,7 @@ function Carousel() {
               key={movie._id}
               className="bg-fondo bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-10 sm:mb-14 "
             >
-              <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:flex-row xl:w-[40%] xl:gap-8">
+              <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:flex-row xl:w-[40%] xl:gap-8 ur:w-[30%]">
                 <img
                   src={movie.imagen}
                   className="p-9 rounded-xl  lg:rounded-3xl"
