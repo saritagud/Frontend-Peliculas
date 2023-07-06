@@ -49,10 +49,10 @@ function DetailsMovie() {
               className="text-white text-4xl m-5 text-left "
               onClick={() => navegar("/")}
             />
-            <div className="flex flex-col justify-center items-center p-10 w-full h-full text-white ">
-              <img src={imagen} className="rounded-xl sm:w-[70%]" alt={titulo} />
+            <div className="flex flex-col justify-center items-center p-10 w-full h-full text-white md:p-20  lg:p-32 lg:pt-5">
+              <img src={imagen} className="rounded-xl sm:w-[70%] md:w-[50%] lg:w-[40%]" alt={titulo} />
 
-              <h1 className="text-left w-full text-2xl font-Coda mt-3">
+              <h1 className="text-left w-full text-2xl font-Coda mt-3 lg:mt-5">
                 {titulo}
               </h1>
 
@@ -83,7 +83,7 @@ function DetailsMovie() {
           </section>
 
           <section className="flex flex-col justify-center items-center p-5">
-            <h1 className="text-white text-3xl font-Coda  w-full text">
+            <h1 className="text-white text-3xl font-Coda w-full">
               Reviews
             </h1>
             {comentarios?.map((comentario) => (

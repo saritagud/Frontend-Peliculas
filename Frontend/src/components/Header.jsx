@@ -14,17 +14,20 @@ function Nav() {
     <div>
       <nav className="bg-verde">
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-end w-full h-20">
+          <div className="flex items-center justify-end w-full h-20 lg:h-24">
             <div className="flex items-center justify-between w-full">
-              <img src="\src\assets\logo.png" className="w-[40%] sm:w-[30%]" />
-              <div className="hidden md:block w-full">
+              <img
+                src="\src\assets\logo.png"
+                className="w-[40%] sm:w-[30%] md:w-[20%] "
+              />
+              <div className="hidden lg:block w-full">
                 <div className="ml-10 flex justify-end items-end w-full ">
                   <NavLink
                     to={"/"}
                     className={({ isActive }) =>
                       isActive
-                        ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
-                        : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
+                        ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
+                        : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
                     }
                   >
                     Inicio
@@ -35,8 +38,8 @@ function Nav() {
                         to={"/login"}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
-                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
+                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
+                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
                         }
                       >
                         Iniciar sesión
@@ -46,8 +49,8 @@ function Nav() {
                         to={"/registro"}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
-                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
+                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
+                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
                         }
                       >
                         Registro
@@ -60,8 +63,8 @@ function Nav() {
                           to={"/administrador"}
                           className={({ isActive }) =>
                             isActive
-                              ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
-                              : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
+                              ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
+                              : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
                           }
                         >
                           Administrador
@@ -83,7 +86,7 @@ function Nav() {
                 </div>
               </div>
             </div>
-            <div className="-mr-2 flex md:hidden">
+            <div className="-mr-2 flex lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -139,7 +142,7 @@ function Nav() {
           leaveTo="opacity-0 scale-95"
         >
           {(ref) => (
-            <div className="md:hidden" id="mobile-menu">
+            <div className="lg:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <NavLink
                   to={"/"}
