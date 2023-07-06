@@ -18,7 +18,7 @@ function Nav() {
             <div className="flex items-center justify-between w-full">
               <img
                 src="\src\assets\logo.png"
-                className="w-[40%] sm:w-[30%] md:w-[20%] "
+                className="w-[40%] sm:w-[30%] md:w-[20%] xl:w-[15%]"
               />
               <div className="hidden lg:block w-full">
                 <div className="ml-10 flex justify-end items-end w-full ">
@@ -26,8 +26,8 @@ function Nav() {
                     to={"/"}
                     className={({ isActive }) =>
                       isActive
-                        ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
-                        : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
+                        ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
+                        : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
                     }
                   >
                     Inicio
@@ -38,8 +38,8 @@ function Nav() {
                         to={"/login"}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
-                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
+                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
+                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
                         }
                       >
                         Iniciar sesión
@@ -49,8 +49,8 @@ function Nav() {
                         to={"/registro"}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
-                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
+                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
+                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
                         }
                       >
                         Registro

@@ -79,7 +79,7 @@ function ModalCreate() {
     <>
       <Toaster />
       <button
-        className="bg-verde p-3 text-xl rounded-xl m-5 text-white font-Marcellus hover:bg- md:text-2xl"
+        className="bg-verde p-3 text-xl rounded-xl m-5 text-white font-Marcellus hover:bg- md:text-2xl 2xl:text-3xl 2xl:p-5"
         onClick={() => setIsOpen(true)}
       >
         Agregar pelicula
@@ -92,80 +92,93 @@ function ModalCreate() {
         >
           <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex flex-col items-center gap-4 m-8 overflow-auto font-Marcellus">
             <div className="flex justify-end mb-3 w-full ">
-              <FaWindowClose className="text-2xl cursor-pointer md:text-3xl" onClick={() => setIsOpen(false)}/>
+              <FaWindowClose
+                className="text-2xl cursor-pointer md:text-3xl"
+                onClick={() => setIsOpen(false)}
+              />
             </div>
-            <label className="w-full text-xl md:text-2xl">Imagen</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
+              Imagen
+            </label>
             <input
-              className="w-full rounded-xl p-2 text-white text-lg md:text-xl"
+              className="w-full rounded-xl p-2 text-white text-lg md:text-xl 2xl:text-2xl"
               type="file"
               name="image"
               onChange={handleFile}
             />
 
-            <label className="w-full text-xl md:text-2xl">Titulo</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
+              Titulo
+            </label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="titulo"
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">Genero</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
+              Genero
+            </label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="genero"
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">Sipnosis</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
+              Sipnosis
+            </label>
             <textarea
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="sinopsis"
               onChange={handleChange}
             ></textarea>
 
-            <label className="w-full text-xl md:text-2xl">
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
               Fecha de publicación
             </label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="date"
               name="fechaPublicacion"
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
               Actores principales
             </label>
             <textarea
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="actoresPrincipales"
               onChange={handleChange}
             ></textarea>
 
-            <label className="w-full text-xl md:text-2xl">Directores</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
+              Directores
+            </label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="directores"
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
               Franquicia que creó la película
             </label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="franquicia"
               onChange={handleChange}
             />
 
             <button
-              className="bg-verde p-3 text-xl rounded-xl m-8 md:text-2xl md:w-[40%]"
+              className="bg-verde p-3 text-xl rounded-xl m-8 md:text-2xl md:w-[40%] 2xl:text-4xl 2xl:p-5"
               disabled={status === "loading"}
             >
               {status === "loading" ? "Agregando..." : "Agregar"}

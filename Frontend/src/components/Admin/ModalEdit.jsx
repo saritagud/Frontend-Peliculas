@@ -89,13 +89,13 @@ function ModalEdit({ data }) {
     <>
       <Toaster />
       <FaPencilAlt
-        className="text-right text-2xl flex items-end justify-end cursor-pointer hover:text-verde"
+        className="text-right text-2xl flex items-end justify-end cursor-pointer hover:text-verde 2xl:text-4xl"
         onClick={() => setIsOpen(true)}
       />
 
       {isOpen && (
         <form
-          className="bg-fondo fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30 min-h-screen overflow-scroll"
+          className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30 min-h-screen overflow-scroll"
           onSubmit={handleSubmit}
         >
           <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex  items-center flex-col gap-4 m-10 overflow-auto">
@@ -105,77 +105,77 @@ function ModalEdit({ data }) {
                 onClick={() => setIsOpen(false)}
               />
             </div>
-            <label className="w-full text-xl md:text-2xl">Imagen</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">Imagen</label>
             <input
-              className="w-full rounded-xl p-2 text-white text-lg"
+              className="w-full rounded-xl p-2 text-white text-lg 2xl:text-2xl"
               type="file"
               name="image"
               onChange={handleFile}
             />
 
-            <label className="w-full text-xl md:text-2xl">Titulo</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">Titulo</label>
             <input
-              className="w-full rounded-xl p-2 text-white text-lg md:text-xl "
+              className="w-full rounded-xl p-2 text-white text-lg md:text-xl 2xl:text-2xl 2xl:p-4"
               type="text"
               name="titulo"
               value={movie.titulo}
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">Genero</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">Genero</label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="genero"
               value={movie.genero}
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">Sinopsis</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">Sinopsis</label>
             <textarea
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="sinopsis"
               value={movie.sinopsis}
               onChange={handleChange}
             ></textarea>
 
-            <label className="w-full text-xl md:text-2xl">
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
               Fecha de publicación
             </label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="date"
               name="fechaPublicacion"
               value={movie.fechaPublicacion}
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
               Actores principales
             </label>
             <textarea
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="actoresPrincipales"
               value={movie.actoresPrincipales}
               onChange={handleChange}
             ></textarea>
 
-            <label className="w-full text-xl md:text-2xl">Directores</label>
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">Directores</label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="directores"
               value={movie.directores}
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">
+            <label className="w-full text-xl md:text-2xl 2xl:text-3xl">
               Franquicia que creó la película
             </label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg font-sans"
+              className="w-full rounded-xl p-2 text-black text-lg font-sans 2xl:text-2xl 2xl:p-4"
               type="text"
               name="franquicia"
               value={movie.franquicia}
@@ -183,7 +183,7 @@ function ModalEdit({ data }) {
             />
 
             <button
-              className="bg-verde p-3 text-xl rounded-xl m-8"
+              className="bg-verde p-3 text-xl rounded-xl m-8 2xl:text-4xl 2xl:p-5"
               disabled={status === "loading"}
             >
               {status === "loading" ? "Guardando..." : "Guardar"}

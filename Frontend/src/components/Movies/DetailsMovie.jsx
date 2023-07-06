@@ -57,31 +57,31 @@ function DetailsMovie() {
               />
 
               <div className="w-full xl:flex xl:flex-col xl:gap-5">
-                <h1 className="text-left w-full text-2xl font-Coda mt-3 lg:mt-5">
+                <h1 className="text-left w-full text-2xl font-Coda mt-3 lg:mt-5 2xl:text-3xl ">
                   {titulo}
                 </h1>
 
-                <p className="text-left w-full text-xl font-Marcellus mt-3">
+                <p className="text-left w-full text-xl font-Marcellus mt-3 2xl:text-3xl ">
                   {sinopsis}
                 </p>
 
-                <h2 className="text-left w-full text-xl font-Marcellus mt-3">
+                <h2 className="text-left w-full text-xl font-Marcellus mt-3 2xl:text-3xl ">
                   Género: {genero}
                 </h2>
 
-                <h2 className="text-left w-full text-xl font-Marcellus mt-3">
+                <h2 className="text-left w-full text-xl font-Marcellus mt-3 2xl:text-3xl ">
                   Actores principales
                 </h2>
-                <ul className="text-left w-full text-xl font-Marcellus mt-3">
+                <ul className="text-left w-full text-xl font-Marcellus mt-3 2xl:text-3xl ">
                   {arrayOfActors?.map((actor, index) => (
                     <li key={index}>{actor}</li>
                   ))}
                 </ul>
 
-                <p className="text-left w-full text-xl font-Marcellus mt-3">
+                <p className="text-left w-full text-xl font-Marcellus mt-3 2xl:text-3xl ">
                   Franquicia que creó la película: {franquicia}
                 </p>
-                <p className="text-left w-full text-xl font-Marcellus mt-3">
+                <p className="text-left w-full text-xl font-Marcellus mt-3 2xl:text-3xl ">
                   Fecha de publicación: {formatearFecha(fechaPublicacion)}
                 </p>
               </div>

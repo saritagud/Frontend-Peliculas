@@ -29,28 +29,28 @@ function Login() {
       <Toaster />
       <Header />
       <section className="flex flex-col justify-center items-center  gap-10 min-h-screen md:gap-14">
-        <img src="src\assets\logo.png" className="w-[50%] -mb-10 md:w-[40%] lg:w-[30%] " />
-        <h1 className="font-Coda text-3xl text-white sm:text-4xl xl:-mt-10">Login</h1>
+        <img src="src\assets\logo.png" className="w-[50%] -mb-10 md:w-[40%] lg:w-[30%]" />
+        <h1 className="font-Coda text-3xl text-white sm:text-4xl xl:-mt-10 2xl:text-5xl ">Login</h1>
 
         <form
           className="flex flex-col justify-center items-center  text-white font-Marcellus  gap-3 w-[80%] sm:w-[60%] sm:gap-5 md:w-[50%] lg:w-[40%] xl:w-[30%]"
           onSubmit={handleSubmit}
         >
-          <label className="w-full text-xl md:text-2xl">Usuario</label>
+          <label className="w-full text-xl md:text-2xl 2xl:text-3xl ">Usuario</label>
           <input
-            className="w-full  rounded-xl p-2 text-black text-lg font-sans sm:p-3"
+            className="w-full  rounded-xl p-2 text-black text-lg font-sans sm:p-3 2xl:text-2xl 2xl:p-4"
             name="usuario"
             type="text"
           />
 
-          <label className="w-full text-xl md:text-2xl">Contraseña</label>
+          <label className="w-full text-xl md:text-2xl 2xl:text-3xl ">Contraseña</label>
           <input
-            className="w-full  rounded-xl p-2 text-black text-lg font-sans sm:p-3"
+            className="w-full  rounded-xl p-2 text-black text-lg font-sans sm:p-3 2xl:text-2xl 2xl:p-4"
             name="contraseña"
             type="password"
           />
 
-          <button className="bg-verde p-3 text-xl rounded-xl m-8 sm:p-4 sm:text-2xl md:mb-20 xl:mb-40">
+          <button className="bg-verde p-3 text-xl rounded-xl m-8 sm:p-4 sm:text-2xl md:mb-20 xl:mb-40 2xl:text-3xl 2xl:p-5">
             {status.login === "loading" ? "Ingresando..." : "Ingresar"}
           </button>
         </form>

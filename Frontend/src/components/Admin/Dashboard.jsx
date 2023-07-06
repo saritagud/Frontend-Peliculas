@@ -28,10 +28,10 @@ function Dashboard() {
           Admin
         </h1>
         <div className=" flex justify-end w-full gap-5">
-          <button className="bg-verde p-2 rounded-xl text-lg font-Marcellus text-white hover:bg-verde2 md:text-xl">
+          <button className="bg-verde p-2 rounded-xl text-lg font-Marcellus text-white hover:bg-verde2 md:text-xl 2xl:text-3xl 2xl:p-5">
             Peliculas
           </button>
-          <button className="bg-verde p-2 rounded-xl text-lg font-Marcellus text-white hover:bg-verde2 md:text-xle">
+          <button className="bg-verde p-2 rounded-xl text-lg font-Marcellus text-white hover:bg-verde2 md:text-xl 2xl:text-3xl 2xl:p-5">
             Reviews
           </button>
         </div>
@@ -50,7 +50,7 @@ function Dashboard() {
           movies.movies.map((movie) => (
             <div
               key={movie._id}
-              className="bg-white p-5 rounded-xl w-full flex justify-between items-center font-Marcellus text-xl md:text-2xl lg:p-7"
+              className="bg-white p-5 rounded-xl w-full flex justify-between items-center font-Marcellus text-xl md:text-2xl lg:p-7 2xl:p-10 2xl:text-3xl"
             >
               <p>{movie.titulo}</p>
               <div className="flex items-center justify-center gap-2">
@@ -63,7 +63,7 @@ function Dashboard() {
           movies.latestMovies.map((movie) => (
             <div
               key={movie._id}
-              className="bg-white p-5 rounded-xl w-full flex justify-between font-Marcellus text-xl lg:p-7"
+              className="bg-white p-5 rounded-xl w-full flex justify-between items-center font-Marcellus text-xl md:text-2xl lg:p-7 2xl:p-10 2xl:text-3xl"
             >
               <p>{movie.titulo}</p>
               <div className="flex gap-2">
