@@ -29,11 +29,11 @@ function Login() {
       <Toaster />
       <Header />
       <section className="flex flex-col justify-center items-center  gap-10 min-h-screen md:gap-14">
-        <img src="src\assets\logo.png" className="w-[50%] -mb-10 md:w-[40%] lg:w-[30%]" />
-        <h1 className="font-Coda text-3xl text-white sm:text-4xl">Login</h1>
+        <img src="src\assets\logo.png" className="w-[50%] -mb-10 md:w-[40%] lg:w-[30%] " />
+        <h1 className="font-Coda text-3xl text-white sm:text-4xl xl:-mt-10">Login</h1>
 
         <form
-          className="flex flex-col justify-center items-center  text-white font-Marcellus  gap-3 w-[80%] sm:w-[60%] sm:gap-5 md:w-[50%] lg:w-[40%]"
+          className="flex flex-col justify-center items-center  text-white font-Marcellus  gap-3 w-[80%] sm:w-[60%] sm:gap-5 md:w-[50%] lg:w-[40%] xl:w-[30%]"
           onSubmit={handleSubmit}
         >
           <label className="w-full text-xl md:text-2xl">Usuario</label>
@@ -50,7 +50,7 @@ function Login() {
             type="password"
           />
 
-          <button className="bg-verde p-3 text-xl rounded-xl m-8 sm:p-4 sm:text-2xl md:mb-20">
+          <button className="bg-verde p-3 text-xl rounded-xl m-8 sm:p-4 sm:text-2xl md:mb-20 xl:mb-40">
             {status.login === "loading" ? "Ingresando..." : "Ingresar"}
           </button>
         </form>

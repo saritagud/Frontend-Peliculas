@@ -42,50 +42,54 @@ function DetailsMovie() {
         <div>
           <section
             className={
-              "bg-black flex flex-col justify-start items-start w-full"
+              "bg-black flex flex-col justify-start items-start w-full "
             }
           >
             <IoMdArrowRoundBack
-              className="text-white text-4xl m-5 text-left "
+              className="text-white text-4xl m-5 text-left xl:text-5xl xl:m-10"
               onClick={() => navegar("/")}
             />
-            <div className="flex flex-col justify-center items-center p-10 w-full h-full text-white md:p-20  lg:p-32 lg:pt-5">
-              <img src={imagen} className="rounded-xl sm:w-[70%] md:w-[50%] lg:w-[40%]" alt={titulo} />
+            <div className="flex flex-col justify-center items-center p-10 w-full h-full text-white md:p-20  lg:p-32 lg:pt-5 xl:flex-row xl:gap-10 xl:p-20 xl:items-start">
+              <img
+                src={imagen}
+                className="rounded-xl sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[35%]"
+                alt={titulo}
+              />
 
-              <h1 className="text-left w-full text-2xl font-Coda mt-3 lg:mt-5">
-                {titulo}
-              </h1>
+              <div className="w-full xl:flex xl:flex-col xl:gap-5">
+                <h1 className="text-left w-full text-2xl font-Coda mt-3 lg:mt-5">
+                  {titulo}
+                </h1>
 
-              <p className="text-left w-full text-xl font-Marcellus mt-3">
-                {sinopsis}
-              </p>
+                <p className="text-left w-full text-xl font-Marcellus mt-3">
+                  {sinopsis}
+                </p>
 
-              <h2 className="text-left w-full text-xl font-Marcellus mt-3">
-                Género: {genero}
-              </h2>
+                <h2 className="text-left w-full text-xl font-Marcellus mt-3">
+                  Género: {genero}
+                </h2>
 
-              <h2 className="text-left w-full text-xl font-Marcellus mt-3">
-                Actores principales
-              </h2>
-              <ul className="text-left w-full text-xl font-Marcellus mt-3">
-                {arrayOfActors?.map((actor, index) => (
-                  <li key={index}>{actor}</li>
-                ))}
-              </ul>
+                <h2 className="text-left w-full text-xl font-Marcellus mt-3">
+                  Actores principales
+                </h2>
+                <ul className="text-left w-full text-xl font-Marcellus mt-3">
+                  {arrayOfActors?.map((actor, index) => (
+                    <li key={index}>{actor}</li>
+                  ))}
+                </ul>
 
-              <p className="text-left w-full text-xl font-Marcellus mt-3">
-                Franquicia que creó la película: {franquicia}
-              </p>
-              <p className="text-left w-full text-xl font-Marcellus mt-3">
-                Fecha de publicación: {formatearFecha(fechaPublicacion)}
-              </p>
+                <p className="text-left w-full text-xl font-Marcellus mt-3">
+                  Franquicia que creó la película: {franquicia}
+                </p>
+                <p className="text-left w-full text-xl font-Marcellus mt-3">
+                  Fecha de publicación: {formatearFecha(fechaPublicacion)}
+                </p>
+              </div>
             </div>
           </section>
 
-          <section className="flex flex-col justify-center items-center p-5 ">
-            <h1 className="text-white text-3xl font-Coda w-full">
-              Reviews
-            </h1>
+          <section className="flex flex-col justify-center items-center p-5 xl:p-10">
+            <h1 className="text-white text-3xl font-Coda w-full xl:text-5xl">Reviews</h1>
             {comentarios?.map((comentario) => (
               <Reviews key={comentario._id} review={comentario} />
             ))}

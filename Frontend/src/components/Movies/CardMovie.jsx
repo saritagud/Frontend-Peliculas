@@ -6,7 +6,7 @@ function CardMovie({ data }) {
   const { _id, imagen, titulo, fechaPublicacion } = data;
   return (
     <>
-      <section className="m-6 text-white w-[60%] sm:w-[50%] md:w-[40%]">
+      <section className="m-6 text-white w-[60%] sm:w-[50%] md:w-[40%] xl:w-[25%]">
         <div className=" w-full">
           <img src={imagen} className="rounded-xl cursor-pointer" />
           

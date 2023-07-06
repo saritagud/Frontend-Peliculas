@@ -39,14 +39,14 @@ function Landing() {
         ) : movies.length === 0 ? (
           <h1 className="text-white text-3xl font-Coda ">No hay películas</h1>
         ) : movies.movies ? (
-          <div className="w-full flex flex-col items-center justify-center md:flex-wrap md:flex-row md:w-[80%] md:-mr-14">
+          <div className="w-full flex flex-col items-center justify-center md:flex-wrap md:flex-row md:w-[80%]  xl:w-full">
             {movies.movies.map((movie) => (
               <CardMovie key={movie._id} data={movie} />
             ))}
           </div>
         ) : (
-          <div className="w-full flex flex-col items-center justify-center md:flex-wrap md:flex-row md:w-[80%]">
-            {movies.latestMovies.map((movie) => (
+          <div className="w-full flex flex-col items-center justify-center md:flex-wrap md:flex-row md:w-[80%]  xl:w-full">
+            {movies.movies.map((movie) => (
               <CardMovie key={movie._id} data={movie} />
             ))}
           </div>
