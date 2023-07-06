@@ -29,11 +29,11 @@ function Register() {
       <Toaster />
       <Header />
       <section className="flex flex-col justify-center items-center gap-10 min-h-screen md:gap-14">
-        <img src="src\assets\logo.png" className="w-[50%] -mb-10 md:w-[40%]" />
+        <img src="src\assets\logo.png" className="w-[50%] -mb-10 md:w-[40%] lg:w-[30%]" />
         <h1 className="font-Coda text-3xl text-white sm:text-4xl">Registro</h1>
 
         <form
-          className="flex flex-col justify-center items-center p-5 text-white font-Marcellus gap-3 w-[80%] sm:w-[60%] sm:gap-5 md:w-[50%]"
+          className="flex flex-col justify-center items-center p-5 text-white font-Marcellus gap-3 w-[80%] sm:w-[60%] sm:gap-5 md:w-[50%] lg:w-[40%]"
           onSubmit={handleSubmit}
         >
           <label className="w-full text-xl md:text-2xl">Nombre</label>

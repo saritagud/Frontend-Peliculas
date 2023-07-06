@@ -50,7 +50,7 @@ function Dashboard() {
           movies.movies.map((movie) => (
             <div
               key={movie._id}
-              className="bg-white p-5 rounded-xl w-full flex justify-between items-center font-Marcellus text-xl md:text-2xl"
+              className="bg-white p-5 rounded-xl w-full flex justify-between items-center font-Marcellus text-xl md:text-2xl lg:p-7"
             >
               <p>{movie.titulo}</p>
               <div className="flex items-center justify-center gap-2">
@@ -63,7 +63,7 @@ function Dashboard() {
           movies.latestMovies.map((movie) => (
             <div
               key={movie._id}
-              className="bg-white p-5 rounded-xl w-full flex justify-between font-Marcellus text-xl"
+              className="bg-white p-5 rounded-xl w-full flex justify-between font-Marcellus text-xl lg:p-7"
             >
               <p>{movie.titulo}</p>
               <div className="flex gap-2">

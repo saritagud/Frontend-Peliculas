@@ -82,7 +82,7 @@ function DetailsMovie() {
             </div>
           </section>
 
-          <section className="flex flex-col justify-center items-center p-5">
+          <section className="flex flex-col justify-center items-center p-5 ">
             <h1 className="text-white text-3xl font-Coda w-full">
               Reviews
             </h1>

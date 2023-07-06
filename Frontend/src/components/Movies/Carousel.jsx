@@ -38,8 +38,8 @@ function Carousel() {
               key={movie._id}
               className="bg-fondo bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-10 sm:mb-14"
             >
-              <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[50%]">
-                <img src={movie.imagen} className="p-9 rounded-xl " />
+              <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%]">
+                <img src={movie.imagen} className="p-9 rounded-xl  lg:rounded-3xl" />
                 <h1 className="text-white text-center  mb-8 font-Coda -mt-20  text-4xl lg:text-5xl">
                   {movie.titulo}
                 </h1>
@@ -51,8 +51,8 @@ function Carousel() {
               key={movie._id}
               className="bg-fondo bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-10 sm:mb-14"
             >
-              <div className="flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] lg:w-[50%]">
-                <img src={movie.imagen} className="p-9 rounded-xl " />
+              <div className="flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%]">
+                <img src={movie.imagen} className="p-9 rounded-xl lg:rounded-3xl" />
                 <h1 className="text-white text-center  mb-8 font-Coda -mt-20  text-4xl text lg:text-5xl">
                   {movie.titulo}
                 </h1>

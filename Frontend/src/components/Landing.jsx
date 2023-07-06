@@ -49,12 +49,12 @@ function Landing() {
             {movies.latestMovies.map((movie) => (
               <CardMovie key={movie._id} data={movie} />
             ))}
-            <Pager
-              currentPage={movies.currentPage}
-              totalPages={movies.totalPages}
-            />
           </div>
         )}
+        <Pager
+          currentPage={movies.currentPage}
+          totalPages={movies.totalPages}
+        />
       </section>
 
       <Footer />

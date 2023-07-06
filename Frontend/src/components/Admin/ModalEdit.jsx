@@ -50,9 +50,7 @@ function ModalEdit({ data }) {
     if (movie.genero === "")
       return toast.error('El campo "genero" no puede estar vacío');
     if (movie.actoresPrincipales === "")
-      return toast.error(
-        'El campo "Actores Principales" no puede estar vacío'
-      );
+      return toast.error('El campo "Actores Principales" no puede estar vacío');
     if (movie.directores === "")
       return toast.error('El campo "Directores" no puede estar vacío');
     if (movie.franquicia === "")
@@ -97,7 +95,7 @@ function ModalEdit({ data }) {
 
       {isOpen && (
         <form
-          className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30 min-h-screen overflow-scroll"
+          className="bg-fondo fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30 min-h-screen overflow-scroll"
           onSubmit={handleSubmit}
         >
           <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex  items-center flex-col gap-4 m-10 overflow-auto">
@@ -109,7 +107,7 @@ function ModalEdit({ data }) {
             </div>
             <label className="w-full text-xl md:text-2xl">Imagen</label>
             <input
-              className="w-full rounded-xl p-2 text-black text-lg"
+              className="w-full rounded-xl p-2 text-white text-lg"
               type="file"
               name="image"
               onChange={handleFile}
@@ -142,7 +140,9 @@ function ModalEdit({ data }) {
               onChange={handleChange}
             ></textarea>
 
-            <label className="w-full text-xl md:text-2xl">Fecha de publicación</label>
+            <label className="w-full text-xl md:text-2xl">
+              Fecha de publicación
+            </label>
             <input
               className="w-full rounded-xl p-2 text-black text-lg font-sans"
               type="date"
@@ -151,7 +151,9 @@ function ModalEdit({ data }) {
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">Actores principales</label>
+            <label className="w-full text-xl md:text-2xl">
+              Actores principales
+            </label>
             <textarea
               className="w-full rounded-xl p-2 text-black text-lg font-sans"
               type="text"

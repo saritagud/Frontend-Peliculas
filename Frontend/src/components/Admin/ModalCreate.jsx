@@ -48,9 +48,7 @@ function ModalCreate() {
     if (movie.genero === "")
       return toast.error('El campo "genero" no puede estar vacio');
     if (movie.actoresPrincipales === "")
-      return toast.error(
-        'El campo "Actores Principales" no puede estar vacio'
-      );
+      return toast.error('El campo "Actores Principales" no puede estar vacio');
     if (movie.directores === "")
       return toast.error('El campo "Directores" no puede estar vacio');
     if (movie.franquicia === "")
@@ -80,21 +78,21 @@ function ModalCreate() {
   return (
     <>
       <Toaster />
-      <button className="bg-verde p-3 text-xl rounded-xl m-5 text-white font-Marcellus hover:bg- md:text-2xl"
-        >Agregar pelicula</button>
-        
-      
+      <button
+        className="bg-verde p-3 text-xl rounded-xl m-5 text-white font-Marcellus hover:bg- md:text-2xl"
+        onClick={() => setIsOpen(true)}
+      >
+        Agregar pelicula
+      </button>
 
       {isOpen && (
         <form
           className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30  min-h-screen overflow-scroll"
           onSubmit={handleSubmit}
         >
-          <section className="bbg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex flex-col items-center gap-4 m-8 overflow-auto font-Marcellus">
+          <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex flex-col items-center gap-4 m-8 overflow-auto font-Marcellus">
             <div className="flex justify-end mb-3 w-full ">
-              <FaWindowClose
-                className="text-2xl cursor-pointer md:text-3xl"
-              />
+              <FaWindowClose className="text-2xl cursor-pointer md:text-3xl" onClick={() => setIsOpen(false)}/>
             </div>
             <label className="w-full text-xl md:text-2xl">Imagen</label>
             <input
@@ -128,7 +126,9 @@ function ModalCreate() {
               onChange={handleChange}
             ></textarea>
 
-            <label className="w-full text-xl md:text-2xl">Fecha de publicación</label>
+            <label className="w-full text-xl md:text-2xl">
+              Fecha de publicación
+            </label>
             <input
               className="w-full rounded-xl p-2 text-black text-lg font-sans"
               type="date"
@@ -136,7 +136,9 @@ function ModalCreate() {
               onChange={handleChange}
             />
 
-            <label className="w-full text-xl md:text-2xl">Actores principales</label>
+            <label className="w-full text-xl md:text-2xl">
+              Actores principales
+            </label>
             <textarea
               className="w-full rounded-xl p-2 text-black text-lg font-sans"
               type="text"
