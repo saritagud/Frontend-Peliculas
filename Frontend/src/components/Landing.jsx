@@ -11,7 +11,7 @@ import { InfinitySpin } from "react-loader-spinner";
 import { toast, Toaster } from "react-hot-toast";
 
 function Landing() {
-  const { movies, status } = useSelector((state) => state.movies);
+  const { movies, status, currentPage, totalPages } = useSelector((state) => state.movies);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,8 +19,6 @@ function Landing() {
       dispatch(fetchMovies());
     }
   }, []);
-
-  // console.log(movies);
 
   return (
     <>
@@ -38,23 +36,19 @@ function Landing() {
           toast.error("Ha ocurrido un error")
         ) : movies.length === 0 ? (
           <h1 className="text-white text-3xl font-Coda ">No hay películas</h1>
-        ) : movies.movies ? (
-          <div className="w-full flex flex-col items-center justify-center md:flex-wrap md:flex-row md:w-[80%]  xl:w-full">
-            {movies.movies.map((movie) => (
-              <CardMovie key={movie._id} data={movie} />
-            ))}
-          </div>
         ) : (
-          <div className="w-full flex flex-col items-center justify-center md:flex-wrap md:flex-row md:w-[80%]  xl:w-full">
-            {movies.movies.map((movie) => (
-              <CardMovie key={movie._id} data={movie} />
-            ))}
-          </div>
+          <>
+            <div className="w-full flex flex-col items-center justify-center md:flex-wrap md:flex-row md:w-[80%]  xl:w-full">
+              {movies.map((movie) => (
+                <CardMovie key={movie._id} data={movie} />
+              ))}
+            </div>
+            <Pager
+              currentPage={currentPage}
+              totalPages={totalPages}
+            />
+          </>
         )}
-        <Pager
-          currentPage={movies.currentPage}
-          totalPages={movies.totalPages}
-        />
       </section>
 
       <Footer />
