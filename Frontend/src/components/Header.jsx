@@ -58,7 +58,7 @@ function Nav() {
                     </>
                   ) : (
                     <>
-                      {user.user.rol === "admin" && (
+                      {user.user.isAdmin && (
                         <NavLink
                           to={"/administrador"}
                           className={({ isActive }) =>

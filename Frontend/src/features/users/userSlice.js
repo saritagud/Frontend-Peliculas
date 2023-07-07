@@ -28,12 +28,13 @@ export const userSlice = createSlice({
     });
     builder.addCase(login.fulfilled, (state, action) => {
       state.status.login = "succeeded";
-      const { token, usuario, rol } = action.payload;
+      const { token, usuario, isAdmin } = action.payload;
       state.user = {
         token,
         usuario,
-        rol,
+        isAdmin,
       };
+      localStorage.setItem("token", JSON.stringify(token))
     });
     builder.addCase(login.rejected, (state) => {
       state.status.login = "failed";
@@ -43,12 +44,13 @@ export const userSlice = createSlice({
     });
     builder.addCase(register.fulfilled, (state, action) => {
       state.status.register = "succeeded";
-      const { token, usuario, rol } = action.payload;
+      const { token, usuario, isAdmin } = action.payload;
       state.user = {
         token,
         usuario,
-        rol,
+        isAdmin,
       };
+      localStorage.setItem("token", JSON.stringify(token))
     });
     builder.addCase(register.rejected, (state) => {
       state.status.register = "failed";
