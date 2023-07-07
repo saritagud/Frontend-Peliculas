@@ -9,7 +9,6 @@ import { fetchMoviesLastest } from "../../features/latestMovies/latestMovies";
 
 function Carousel() {
   const { latestMovies, status } = useSelector((state) => state.latestMovies);
-  console.log(latestMovies);
   const dispatch = useDispatch();
 
   useEffect(() => {
