@@ -8,6 +8,7 @@ function ModalCreate() {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const status = useSelector((state) => state.movies.status);
+  const token = JSON.parse(localStorage.getItem("token"))
 
   const [movie, setMovie] = useState({
     image: null,
@@ -68,7 +69,11 @@ function ModalCreate() {
     body.append("franquicia", movie.franquicia);
     body.append("fechaPublicacion", movie.fechaPublicacion);
 
-    dispatch(addMovie(body));
+    const datos = {
+      data: body,
+      token,
+    };
+    dispatch(addMovie({ datos }));
     if (status == "succeeded") {
       toast.success("Se ha creado correctamente");
       setIsOpen(false);

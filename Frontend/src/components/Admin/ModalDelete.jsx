@@ -9,9 +9,14 @@ function ModalDelete({ id }) {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const status = useSelector((state) => state.movies.status);
+  const token = JSON.parse(localStorage.getItem("token"))
 
   const deleteAMovie = () => {
-    dispatch(deleteMovie(id));
+    const datos = {
+      movieID: id,
+      token
+    };
+    dispatch(deleteMovie({datos}));
     setIsOpen(false);
     if (status == "succeeded") {
       toast.success("Se ha eliminado correctamente");

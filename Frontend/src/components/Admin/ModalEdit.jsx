@@ -4,10 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { editMovie } from "../../features/movies/moviesSlice";
 import PropTypes from "prop-types";
 import { toast, Toaster } from "react-hot-toast";
+import { formatearFechaInput } from "../../logic/funciones";
 
 function ModalEdit({ data }) {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
+  const token = JSON.parse(localStorage.getItem("token"))
+  const fechaFormateada = formatearFechaInput(data.fechaPublicacion)
   const [movie, setMovie] = useState({
     image: data.imagen,
     titulo: data.titulo,
@@ -16,7 +19,7 @@ function ModalEdit({ data }) {
     actoresPrincipales: data.actoresPrincipales,
     directores: data.directores,
     franquicia: data.franquicia || "",
-    fechaPublicacion: data.fechaPublicacion,
+    fechaPublicacion: fechaFormateada,
   });
 
   const status = useSelector((state) => state.movies.status);
@@ -77,6 +80,7 @@ function ModalEdit({ data }) {
     const datos = {
       body,
       movieID: data._id,
+      token
     };
     dispatch(editMovie({ datos }));
     if (status == "succeeded") {
@@ -115,7 +119,7 @@ function ModalEdit({ data }) {
 
             <label className="w-full text-xl md:text-2xl 2xl:text-3xl">Titulo</label>
             <input
-              className="w-full rounded-xl p-2 text-white text-lg md:text-xl 2xl:text-2xl 2xl:p-4"
+              className="w-full rounded-xl p-2 text-black text-lg md:text-xl 2xl:text-2xl 2xl:p-4"
               type="text"
               name="titulo"
               value={movie.titulo}
