@@ -9,58 +9,85 @@ export const ReviewsSlice = createSlice({
   },
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(fetchReviews.pending, (state, action) => {
-      state.status = "loading";
+    builder.addCase(fetchReviews.pending, (state) => {
+      return {
+        ...state,
+        status: 'loading'
+      }
     });
     builder.addCase(fetchReviews.fulfilled, (state, action) => {
-      state.status = "succeeded";
-      state.reviews = action.payload;
+      return {
+        ...state,
+        status: 'succeeded',
+        reviews: action.payload
+      }
     });
     builder.addCase(fetchReviews.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
+      return {
+        ...state,
+        status: 'failed',
+        error: action.error.message
+      }
     });
 
-    builder.addCase(addReview.pending, (state, action) => {
-      state.status = "loading";
+    builder.addCase(addReview.pending, (state) => {
+      return {
+        ...state,
+        status: 'loading'
+      }
     });
     builder.addCase(addReview.fulfilled, (state, action) => {
-      state.status = "succeeded";
-      state.reviews = action.payload;
+      return {
+        ...state,
+        status: "succeeded",
+        reviews: [action.payload, ...state.reviews.slice(0, state.reviews.length - 1)]
+      }
     });
     builder.addCase(addReview.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
+      return {
+        ...state,
+        status: 'failed',
+        error: action.error.message
+      }
     });
 
-    builder.addCase(editReview.pending, (state, action) => {
-      state.status = "loading";
+    builder.addCase(editReview.pending, (state) => {
+      return {
+        ...state,
+        status: 'loading'
+      }
     });
     builder.addCase(editReview.fulfilled, (state, action) => {
       state.status = "succeeded";
       const { _id } = action.payload;
       const update = action.payload;
-      const movieIndex = state.reviews.findIndex((movie) => movie._id === _id);
+      const reviewIndex = state.reviews.findIndex((review) => review._id === _id);
 
-      if (movieIndex === -1) {
+      if (reviewIndex === -1) {
         return state;
       }
 
       const newReviews = [...state.reviews];
-      newReviews[movieIndex] = update;
+      newReviews[reviewIndex] = update;
 
       return {
         ...state,
-        Reviews: newReviews,
+        reviews: newReviews,
       };
     });
     builder.addCase(editReview.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
+      return {
+        ...state,
+        status: 'failed',
+        error: action.error.message
+      }
     });
 
-    builder.addCase(deleteReview.pending, (state, action) => {
-      state.status = "loading";
+    builder.addCase(deleteReview.pending, (state) => {
+      return {
+        ...state,
+        status: 'loading'
+      }
     });
     builder.addCase(deleteReview.fulfilled, (state, action) => {
       state.status = "succeeded";
@@ -72,8 +99,11 @@ export const ReviewsSlice = createSlice({
       };
     });
     builder.addCase(deleteReview.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
+      return {
+        ...state,
+        status: 'failed',
+        error: action.error.message
+      }
     });
   },
 });
@@ -84,7 +114,7 @@ export const ReviewsSlice = createSlice({
 export const fetchReviews = createAsyncThunk(
   "reviews/fetchReviews",
   async () => {
-    const response = await fetch("http://localhost:3000/comentarios");
+    const response = await fetch("http://localhost:3000/comments");
     return await response.json();
   }
 );
@@ -92,11 +122,11 @@ export const fetchReviews = createAsyncThunk(
 export const addReview = createAsyncThunk(
     "reviews/addReview",
     async ({ datos }) => {
-      const { body, reviewID } = datos;
+      const { body } = datos;
       const response = await fetch(
-        `http://localhost:3000/new/${reviewID}`,
+        `http://localhost:3000/comments/new`,
         {
-          method: "PUT",
+          method: "POST",
           body,
         }
       );
@@ -109,7 +139,7 @@ export const editReview = createAsyncThunk(
   async ({ datos }) => {
     const { body, reviewID } = datos;
     const response = await fetch(
-      `http://localhost:3000/update/${reviewID}`,
+      `http://localhost:3000/comments/update/${reviewID}`,
       {
         method: "PUT",
         body,
@@ -123,7 +153,7 @@ export const deleteReview = createAsyncThunk(
   "reviews/deleteReview",
   async (reviewID) => {
     const response = await fetch(
-      `http://localhost:3000/delete/${reviewID}`,
+      `http://localhost:3000/comments/delete/${reviewID}`,
       {
         method: "DELETE",
       }
