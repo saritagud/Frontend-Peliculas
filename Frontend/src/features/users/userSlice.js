@@ -1,13 +1,27 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { decodeToken } from "react-jwt";
+
+const tokenLs = JSON.parse(localStorage.getItem('token'))
+
+let initUser = {
+  token: "",
+  usuario: "",
+  isAdmin: false,
+}
+
+if (tokenLs) {
+  const { usuario, isAdmin} = decodeToken(tokenLs).data
+  initUser = {
+    token: tokenLs,
+    usuario,
+    isAdmin,
+  }
+}
 
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    user: {
-      token: "",
-      usuario: "",
-      rol: "",
-    },
+    user: initUser,
     status: {
       login: "idle",
       register: "idle",
@@ -15,10 +29,11 @@ export const userSlice = createSlice({
   },
   reducers: {
     logout: (state) => {
+      localStorage.removeItem('token')
       state.user = {
         token: "",
         usuario: "",
-        rol: "",
+        isAdmin: false,
       };
     },
   },
