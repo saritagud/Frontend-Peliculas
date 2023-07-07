@@ -72,11 +72,7 @@ function Nav() {
                       )}
                       <NavLink
                         to={"/login"}
-                        className={({ isActive }) =>
-                          isActive
-                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
-                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left transition-all duration-500"
-                        }
+                        className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left transition-all duration-500"
                         onClick={handleSession}
                       >
                         Cerrar Sesión
