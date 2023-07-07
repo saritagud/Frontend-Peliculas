@@ -19,10 +19,33 @@ export const moviesSlice = createSlice({
       return {
           ...state,
           status: "succeeded",
-          movies: action.payload
+          movies: action.payload.movies,
+          currentPage: action.payload.currentPage,
+          totalPages: action.payload.totalPages
       }
     });
     builder.addCase(fetchMovies.rejected, (state, action) => {
+      return {
+          ...state,
+          status: 'failed',
+          error: action.error.message
+      }
+    });
+
+    builder.addCase(filterMovies.pending, (state) => {
+      return {
+          ...state,
+          status: 'loading'
+      }
+    });
+    builder.addCase(filterMovies.fulfilled, (state, action) => {
+      return {
+          ...state,
+          status: "succeeded",
+          movies: action.payload,
+      }
+    });
+    builder.addCase(filterMovies.rejected, (state, action) => {
       return {
           ...state,
           status: 'failed',
@@ -58,7 +81,6 @@ export const moviesSlice = createSlice({
       }
     });
     builder.addCase(editMovie.fulfilled, (state, action) => {
-      state.status = "succeeded";
       const { _id } = action.payload;
       const update = action.payload;
       const movieIndex = state.movies.findIndex((movie) => movie._id === _id);
@@ -72,6 +94,7 @@ export const moviesSlice = createSlice({
 
       return {
         ...state,
+        status: "succeeded",
         movies: newMovies,
       };
     });
@@ -119,8 +142,19 @@ export const fetchMovies = createAsyncThunk(
   }
 );
 
-export const addMovie = createAsyncThunk("movies/addMovie", async (data) => {
+export const filterMovies = createAsyncThunk("movies/filterMovies", async (search) => {
+  const response = await fetch("http://localhost:3000/movies/filter/search", {
+    headers: { "Content-Type": "application/json" },
+    method: "POST",
+    body: JSON.stringify(search)
+  });
+  return await response.json();
+});
+
+export const addMovie = createAsyncThunk("movies/addMovie", async ({ datos }) => {
+  const { data, token } = datos;
   const response = await fetch("http://localhost:3000/movies/create", {
+    headers: { Authorization: `Bearer ${token}` },
     method: "POST",
     body: data,
   });
@@ -130,10 +164,11 @@ export const addMovie = createAsyncThunk("movies/addMovie", async (data) => {
 export const editMovie = createAsyncThunk(
   "movies/editMovie",
   async ({ datos }) => {
-    const { body, movieID } = datos;
+    const { body, movieID, token } = datos;
     const response = await fetch(
       `http://localhost:3000/movies/update/${movieID}`,
       {
+        headers: { Authorization: `Bearer ${token}` },
         method: "PUT",
         body,
       }
@@ -144,10 +179,12 @@ export const editMovie = createAsyncThunk(
 
 export const deleteMovie = createAsyncThunk(
   "movies/deleteMovie",
-  async (movieID) => {
+  async ({datos}) => {
+    const { movieID, token } = datos;
     const response = await fetch(
       `http://localhost:3000/movies/delete/${movieID}`,
       {
+        headers: { Authorization: `Bearer ${token}` },
         method: "DELETE",
       }
     );
