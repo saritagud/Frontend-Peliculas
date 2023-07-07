@@ -1,17 +1,25 @@
 import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import PropTypes from "prop-types";
-import { deleteReview } from "../../../features/reviews/reviewsSlice";
+import { decodeToken } from "react-jwt";
 
-function ModalDeleteReview({ id }) {
+function ModalDeleteReview({ id, deleteAction }) {
   const [isOpen, setIsOpen] = useState(false);
-  const status = useSelector((state) => state.reviews.status);
+  // const status = useSelector((state) => state.movie.status);
   const dispatch = useDispatch()
-
+  const token = JSON.parse(localStorage.getItem('token'))
+  const {id: userID, isAdmin} = decodeToken(token).data
   const deleteAReview = () => {
-    dispatch(deleteReview(id));
+    const datos = {
+      body: {
+        usuarioId: userID,
+        isAdmin
+      },
+      reviewID: id
+    }
+    dispatch(deleteAction({ datos }));
     setIsOpen(false);
     if (status == "succeeded") {
       toast.success("Se ha eliminado correctamente");
@@ -57,6 +65,7 @@ function ModalDeleteReview({ id }) {
 
 ModalDeleteReview.propTypes = {
   id: PropTypes.string.isRequired,
+  deleteAction: PropTypes.func.isRequired,
 };
 
 export default ModalDeleteReview;
