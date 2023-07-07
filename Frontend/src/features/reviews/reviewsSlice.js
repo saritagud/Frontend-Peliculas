@@ -90,11 +90,11 @@ export const ReviewsSlice = createSlice({
       }
     });
     builder.addCase(deleteReview.fulfilled, (state, action) => {
-      state.status = "succeeded";
       return {
         ...state,
+        status: "succeeded",
         reviews: state.reviews.filter(
-          (review) => review._id !== action.payload._id
+          (review) => review._id !== action.payload
         ),
       };
     });
@@ -151,11 +151,14 @@ export const editReview = createAsyncThunk(
 
 export const deleteReview = createAsyncThunk(
   "reviews/deleteReview",
-  async (reviewID) => {
+  async ({ datos }) => {
+    const {body, reviewID} = datos
     const response = await fetch(
       `http://localhost:3000/comments/delete/${reviewID}`,
       {
         method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
       }
     );
     return await response.json();
