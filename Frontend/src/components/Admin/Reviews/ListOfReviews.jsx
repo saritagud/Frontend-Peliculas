@@ -1,3 +1,4 @@
+import { deleteReview } from '../../../features/reviews/reviewsSlice';
 import ModalDeleteReview from './ModalDeleteReview'
 import PropTypes from "prop-types";
 
@@ -15,7 +16,7 @@ function ListOfReviews({ reviews }) {
                   >
                      <p>{review.contenido}</p>
                      <div className="flex items-center justify-center gap-2">
-                        <ModalDeleteReview id={review._id} />
+                        <ModalDeleteReview id={review._id} deleteAction={deleteReview}/>
                      </div>
                   </div>
                ))
