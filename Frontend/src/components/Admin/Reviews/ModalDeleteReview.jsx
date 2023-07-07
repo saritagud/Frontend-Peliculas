@@ -1,9 +1,22 @@
 import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-hot-toast";
 import PropTypes from "prop-types";
+import { deleteReview } from "../../../features/reviews/reviewsSlice";
 
-function ModalDeleteReview() {
+function ModalDeleteReview({ id }) {
   const [isOpen, setIsOpen] = useState(false);
+  const status = useSelector((state) => state.reviews.status);
+  const dispatch = useDispatch()
+
+  const deleteAReview = () => {
+    dispatch(deleteReview(id));
+    setIsOpen(false);
+    if (status == "succeeded") {
+      toast.success("Se ha eliminado correctamente");
+    }
+  };
 
   return (
     <>
@@ -27,8 +40,12 @@ function ModalDeleteReview() {
                 Volver atrás
               </button>
 
-              <button className="bg-verde p-3 text-xl rounded-xl">
-                Eliminar
+              <button
+                className="bg-verde p-3 text-xl rounded-xl 2xl:text-2xl"
+                onClick={deleteAReview}
+                disabled={status === "loading"}
+              >
+                {status === "loading" ? "Eliminando..." : "Eliminar"}
               </button>
             </div>
           </div>
