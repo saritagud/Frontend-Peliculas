@@ -7,11 +7,11 @@ import { formatearFecha } from "../../logic/funciones";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { InfinitySpin } from "react-loader-spinner";
+import ModalCreateReview from "../Admin/Reviews/ModalCreateReview";
 
 function DetailsMovie() {
   const { movieID } = useParams();
-  const movies = useSelector((state) => state.movie.movie);
-  const status = useSelector((state) => state.movie.status);
+  const {movie, status} = useSelector((state) => state.movie);
   const dispatch = useDispatch();
   const navegar = useNavigate();
 
@@ -28,7 +28,7 @@ function DetailsMovie() {
     franquicia,
     fechaPublicacion,
     comentarios,
-  } = movies;
+  } = movie;
 
   const arrayOfActors = actoresPrincipales?.split(", ");
 
@@ -90,8 +90,9 @@ function DetailsMovie() {
 
           <section className="flex flex-col justify-center items-center p-5 xl:p-10">
             <h1 className="text-white text-3xl font-Coda w-full xl:text-5xl">Reviews</h1>
+            <ModalCreateReview/>
             {comentarios?.map((comentario) => (
-              <Reviews key={comentario._id} review={comentario} />
+              <Reviews key={comentario._id} review={comentario}/>
             ))}
           </section>
         </div>
