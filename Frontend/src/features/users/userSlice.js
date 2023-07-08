@@ -1,5 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { decodeToken } from "react-jwt";
+import { login, register } from "../../services/users";
 
 const tokenLs = JSON.parse(localStorage.getItem('token'))
 
@@ -74,23 +75,5 @@ export const userSlice = createSlice({
 });
 
 export const { logout } = userSlice.actions;
-
-export const login = createAsyncThunk("user/login", async (user) => {
-  const response = await fetch(`http://localhost:3000/users/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
-  });
-  return await response.json();
-});
-
-export const register = createAsyncThunk("user/register", async (user) => {
-  const response = await fetch(`http://localhost:3000/users/signup`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
-  });
-  return await response.json();
-});
 
 export default userSlice.reducer;

@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import Reviews from "./Reviews";
 import { useEffect } from "react";
-import { fetchMovie } from "../../features/movie/movieSlice";
 import { useParams } from "react-router-dom";
 import { formatearFecha } from "../../logic/funciones";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { InfinitySpin } from "react-loader-spinner";
 import ModalCreateReview from "../Admin/Reviews/ModalCreateReview";
+import { fetchMovie } from "../../services/movie";
 
 function DetailsMovie() {
   const { movieID } = useParams();

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { FaPencilAlt, FaWindowClose } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { editMovie } from "../../features/movies/moviesSlice";
 import PropTypes from "prop-types";
 import { toast, Toaster } from "react-hot-toast";
 import { formatearFechaInput } from "../../logic/funciones";
+import { editMovie } from "../../services/movies";
 
 function ModalEdit({ data }) {
   const [isOpen, setIsOpen] = useState(false);

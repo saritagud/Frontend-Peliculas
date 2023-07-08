@@ -1,8 +1,8 @@
 import { FaWindowClose } from "react-icons/fa";
 import { useState } from "react";
-import { addMovie } from "../../features/movies/moviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, Toaster } from "react-hot-toast";
+import { addMovie } from "../../services/movies";
 
 function ModalCreate() {
   const [isOpen, setIsOpen] = useState(false);

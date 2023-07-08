@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
-import { fetchMovies } from '../features/movies/moviesSlice'
 import PropTypes from 'prop-types';
+import { fetchMovies } from '../services/movies';
 
 function Pager({ currentPage, totalPages }) {
    const dispatch = useDispatch()

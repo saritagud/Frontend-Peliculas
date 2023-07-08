@@ -1,9 +1,9 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../features/users/userSlice";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { login } from "../services/users";
 
 function Login() {
   const dispatch = useDispatch();

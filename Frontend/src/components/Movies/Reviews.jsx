@@ -1,8 +1,8 @@
 /* FaArrowLeft */
 import PropTypes from "prop-types";
 import ModalDeleteReview from "../Admin/Reviews/ModalDeleteReview";
-import { deleteReview } from "../../features/movie/movieSlice";
 import { decodeToken } from "react-jwt";
+import { deleteReview } from "../../services/movie";
 
 function Reviews({ review }) {
   const tokenLS = JSON.parse(localStorage.getItem("token"))

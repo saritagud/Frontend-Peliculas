@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { addReview, deleteReview, editReview, fetchReviews } from "../../services/reviews";
 
 export const ReviewsSlice = createSlice({
   name: "reviews",
@@ -110,59 +111,5 @@ export const ReviewsSlice = createSlice({
 
 // Por si llega hacer falta un action ⬇️
 // export const {  } = ReviewsSlice.actions
-
-export const fetchReviews = createAsyncThunk(
-  "reviews/fetchReviews",
-  async () => {
-    const response = await fetch("http://localhost:3000/comments");
-    return await response.json();
-  }
-);
-
-export const addReview = createAsyncThunk(
-    "reviews/addReview",
-    async ({ datos }) => {
-      const { body } = datos;
-      const response = await fetch(
-        `http://localhost:3000/comments/new`,
-        {
-          method: "POST",
-          body,
-        }
-      );
-      return await response.json();
-    }
-  );
-
-export const editReview = createAsyncThunk(
-  "reviews/editReview",
-  async ({ datos }) => {
-    const { body, reviewID } = datos;
-    const response = await fetch(
-      `http://localhost:3000/comments/update/${reviewID}`,
-      {
-        method: "PUT",
-        body,
-      }
-    );
-    return await response.json();
-  }
-);
-
-export const deleteReview = createAsyncThunk(
-  "reviews/deleteReview",
-  async ({ datos }) => {
-    const {body, reviewID} = datos
-    const response = await fetch(
-      `http://localhost:3000/comments/delete/${reviewID}`,
-      {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      }
-    );
-    return await response.json();
-  }
-);
 
 export default ReviewsSlice.reducer;

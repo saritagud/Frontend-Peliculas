@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteMovie } from "../../features/movies/moviesSlice";
 import PropTypes from "prop-types";
 import { toast, Toaster } from "react-hot-toast";
+import { deleteMovie } from "../../services/movies";
 
 function ModalDelete({ id }) {
   const [isOpen, setIsOpen] = useState(false);

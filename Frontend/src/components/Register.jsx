@@ -1,9 +1,9 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../features/users/userSlice";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
+import { register } from "../services/users";
 
 function Register() {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { filterMovies } from "../../features/movies/moviesSlice";
+import { filterMovies } from "../../services/movies";
 
 function Searcher() {
   const dispatch = useDispatch();

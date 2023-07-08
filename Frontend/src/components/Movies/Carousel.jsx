@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { InfinitySpin } from "react-loader-spinner";
 /* import { toast, Toaster } from "react-hot-toast"; */
 import { useEffect } from "react";
-import { fetchMoviesLastest } from "../../features/latestMovies/latestMovies";
+import { fetchMoviesLastest } from "../../services/latestMovies";
 
 function Carousel() {
   const { latestMovies, status } = useSelector((state) => state.latestMovies);

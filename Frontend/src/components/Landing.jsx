@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchMovies } from "../features/movies/moviesSlice";
 import Header from "./Header";
 import Footer from "./Footer";
 import Carousel from "./Movies/Carousel";
@@ -9,6 +8,7 @@ import Searcher from "./Movies/Searcher";
 import Pager from "./Pager";
 import { InfinitySpin } from "react-loader-spinner";
 import { toast, Toaster } from "react-hot-toast";
+import { fetchMovies } from "../services/movies";
 
 function Landing() {
   const { movies, status, currentPage, totalPages } = useSelector((state) => state.movies);

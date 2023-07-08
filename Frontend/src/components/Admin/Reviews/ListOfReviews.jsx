@@ -1,4 +1,4 @@
-import { deleteReview } from '../../../features/reviews/reviewsSlice';
+import { deleteReview } from '../../../services/reviews';
 import ModalDeleteReview from './ModalDeleteReview'
 import PropTypes from "prop-types";
 

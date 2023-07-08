@@ -2,8 +2,9 @@ import { FaWindowClose } from "react-icons/fa";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addReview } from "../../../features/movie/movieSlice";
 import { decodeToken } from 'react-jwt'
+import { addReview } from "../../../services/movie";
+
 function ModalCreateReview() {
   const [isOpen, setIsOpen] = useState(false);
   const {movieID} = useParams()

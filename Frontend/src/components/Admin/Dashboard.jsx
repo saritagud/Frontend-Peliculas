@@ -6,8 +6,8 @@ import ModalCreate from './ModalCreate'
 import { InfinitySpin } from 'react-loader-spinner'
 import ListOfMovies from './ListOfMovies'
 import ListOfReviews from './Reviews/ListOfReviews'
-import { fetchReviews } from '../../features/reviews/reviewsSlice'
-import { fetchMovies } from '../../features/movies/moviesSlice'
+import { fetchReviews } from '../../services/reviews'
+import { fetchMovies } from '../../services/movies'
 
 function Dashboard() {
    const { movies, status, currentPage, totalPages } = useSelector(
