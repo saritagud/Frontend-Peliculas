@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { addMovie, deleteMovie, editMovie, fetchMovies, filterMovies } from "../../services/movies";
 
 export const moviesSlice = createSlice({
   name: "movies",
@@ -19,10 +20,33 @@ export const moviesSlice = createSlice({
       return {
           ...state,
           status: "succeeded",
-          movies: action.payload
+          movies: action.payload.movies,
+          currentPage: action.payload.currentPage,
+          totalPages: action.payload.totalPages
       }
     });
     builder.addCase(fetchMovies.rejected, (state, action) => {
+      return {
+          ...state,
+          status: 'failed',
+          error: action.error.message
+      }
+    });
+
+    builder.addCase(filterMovies.pending, (state) => {
+      return {
+          ...state,
+          status: 'loading'
+      }
+    });
+    builder.addCase(filterMovies.fulfilled, (state, action) => {
+      return {
+          ...state,
+          status: "succeeded",
+          movies: action.payload,
+      }
+    });
+    builder.addCase(filterMovies.rejected, (state, action) => {
       return {
           ...state,
           status: 'failed',
@@ -58,7 +82,6 @@ export const moviesSlice = createSlice({
       }
     });
     builder.addCase(editMovie.fulfilled, (state, action) => {
-      state.status = "succeeded";
       const { _id } = action.payload;
       const update = action.payload;
       const movieIndex = state.movies.findIndex((movie) => movie._id === _id);
@@ -72,6 +95,7 @@ export const moviesSlice = createSlice({
 
       return {
         ...state,
+        status: "succeeded",
         movies: newMovies,
       };
     });
@@ -110,49 +134,5 @@ export const moviesSlice = createSlice({
 
 // Por si llega hacer falta un action ⬇️
 // export const {  } = moviesSlice.actions
-
-export const fetchMovies = createAsyncThunk(
-  "movies/fetchMovies",
-  async (page = 1) => {
-    const response = await fetch(`http://localhost:3000/movies?page=${page}`);
-    return await response.json();
-  }
-);
-
-export const addMovie = createAsyncThunk("movies/addMovie", async (data) => {
-  const response = await fetch("http://localhost:3000/movies/create", {
-    method: "POST",
-    body: data,
-  });
-  return await response.json();
-});
-
-export const editMovie = createAsyncThunk(
-  "movies/editMovie",
-  async ({ datos }) => {
-    const { body, movieID } = datos;
-    const response = await fetch(
-      `http://localhost:3000/movies/update/${movieID}`,
-      {
-        method: "PUT",
-        body,
-      }
-    );
-    return await response.json();
-  }
-);
-
-export const deleteMovie = createAsyncThunk(
-  "movies/deleteMovie",
-  async (movieID) => {
-    const response = await fetch(
-      `http://localhost:3000/movies/delete/${movieID}`,
-      {
-        method: "DELETE",
-      }
-    );
-    return await response.json();
-  }
-);
 
 export default moviesSlice.reducer;

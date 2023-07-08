@@ -5,7 +5,7 @@ function ButtonDetails({ movieID }) {
    return (
       <>
          <Link to={`/detalles/${movieID}`}>
-            <button className='text-white bg-verde p-3 rounded-xl font-Marcellus text-xl mb-5 hover:bg-verde2'>
+            <button className='text-white bg-verde p-3 rounded-xl font-Marcellus text-xl mb-5 hover:bg-verde2 lg:text-2xl 2xl:text-3xl 2xl:p-5'>
                Ver mas
             </button>
          </Link>

@@ -1,9 +1,30 @@
 import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
 import PropTypes from "prop-types";
+import { decodeToken } from "react-jwt";
 
-function ModalDeleteReview() {
+function ModalDeleteReview({ id, deleteAction }) {
   const [isOpen, setIsOpen] = useState(false);
+  // const status = useSelector((state) => state.movie.status);
+  const dispatch = useDispatch()
+  const token = JSON.parse(localStorage.getItem('token'))
+  const {id: userID, isAdmin} = decodeToken(token).data
+  const deleteAReview = () => {
+    const datos = {
+      body: {
+        usuarioId: userID,
+        isAdmin
+      },
+      reviewID: id
+    }
+    dispatch(deleteAction({ datos }));
+    setIsOpen(false);
+    if (status == "succeeded") {
+      toast.success("Se ha eliminado correctamente");
+    }
+  };
 
   return (
     <>
@@ -27,8 +48,12 @@ function ModalDeleteReview() {
                 Volver atrás
               </button>
 
-              <button className="bg-verde p-3 text-xl rounded-xl">
-                Eliminar
+              <button
+                className="bg-verde p-3 text-xl rounded-xl 2xl:text-2xl"
+                onClick={deleteAReview}
+                disabled={status === "loading"}
+              >
+                {status === "loading" ? "Eliminando..." : "Eliminar"}
               </button>
             </div>
           </div>
@@ -40,6 +65,7 @@ function ModalDeleteReview() {
 
 ModalDeleteReview.propTypes = {
   id: PropTypes.string.isRequired,
+  deleteAction: PropTypes.func.isRequired,
 };
 
 export default ModalDeleteReview;

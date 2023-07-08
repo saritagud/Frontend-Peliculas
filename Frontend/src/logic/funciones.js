@@ -8,3 +8,13 @@ export const formatearFecha = (date) => {
 
    return `${dia} de ${mes} de ${año}`;
 }
+
+export const formatearFechaInput = (date) => {
+   const fecha = new Date(date);
+
+   const dia = String(fecha.getDate()).padStart(2, '0');
+   const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+   const año = fecha.getFullYear();
+
+   return `${año}-${mes}-${dia}`;
+}

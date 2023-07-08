@@ -1,8 +1,29 @@
 import { FaWindowClose } from "react-icons/fa";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { decodeToken } from 'react-jwt'
+import { addReview } from "../../../services/movie";
 
 function ModalCreateReview() {
   const [isOpen, setIsOpen] = useState(false);
+  const {movieID} = useParams()
+  const dispatch = useDispatch()
+  const token = JSON.parse(localStorage.getItem('token'))
+  const userID = decodeToken(token).data.id
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const body = {
+      usuarioId: userID,
+      contenido: e.target.contenido.value
+    }
+    const datos = {
+      body,
+      movieID
+    }
+    dispatch(addReview({ datos }))
+  }
 
   return (
     <>
@@ -10,11 +31,11 @@ function ModalCreateReview() {
         className="bg-verde p-3 text-xl rounded-xl m-5 text-white font-Marcellus hover:bg-verde2"
         onClick={() => setIsOpen(true)}
       >
-        Agregar pelicula
+        Agregar Review
       </button>
 
       {isOpen && (
-        <form className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30  min-h-screen overflow-scroll">
+        <form className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30  min-h-screen overflow-scroll" onSubmit={handleSubmit}>
           <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[60%] xl:w-[50%] text-white flex flex-col gap-4 m-8 overflow-auto font-Marcellus">
             <div className="flex justify-end mb-3 w-full ">
               <FaWindowClose
