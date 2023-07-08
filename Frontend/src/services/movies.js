@@ -1,9 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+const { VITE_API_URL } = import.meta.env
 
 export const fetchMovies = createAsyncThunk(
    'movies/fetchMovies',
    async (page = 1) => {
-      const response = await fetch(`http://localhost:3000/movies?page=${page}`)
+      const response = await fetch(`${ VITE_API_URL }movies?page=${page}`)
       return await response.json()
    }
 )
@@ -12,7 +13,7 @@ export const filterMovies = createAsyncThunk(
    'movies/filterMovies',
    async search => {
       const response = await fetch(
-         'http://localhost:3000/movies/filter/search',
+         `${ VITE_API_URL }movies/filter/search`,
          {
             headers: { 'Content-Type': 'application/json' },
             method: 'POST',
@@ -27,7 +28,7 @@ export const addMovie = createAsyncThunk(
    'movies/addMovie',
    async ({ datos }) => {
       const { data, token } = datos
-      const response = await fetch('http://localhost:3000/movies/create', {
+      const response = await fetch(`${ VITE_API_URL }movies/create`, {
          headers: { Authorization: `Bearer ${token}` },
          method: 'POST',
          body: data
@@ -41,7 +42,7 @@ export const editMovie = createAsyncThunk(
    async ({ datos }) => {
       const { body, movieID, token } = datos
       const response = await fetch(
-         `http://localhost:3000/movies/update/${movieID}`,
+         `${ VITE_API_URL }movies/update/${movieID}`,
          {
             headers: { Authorization: `Bearer ${token}` },
             method: 'PUT',
@@ -57,7 +58,7 @@ export const deleteMovie = createAsyncThunk(
    async ({ datos }) => {
       const { movieID, token } = datos
       const response = await fetch(
-         `http://localhost:3000/movies/delete/${movieID}`,
+         `${ VITE_API_URL }movies/delete/${movieID}`,
          {
             headers: { Authorization: `Bearer ${token}` },
             method: 'DELETE'

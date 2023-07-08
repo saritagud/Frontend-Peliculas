@@ -1,9 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+const { VITE_API_URL } = import.meta.env
 
 export const fetchMovie = createAsyncThunk(
    'movie/fetchMovie',
    async movieID => {
-      const response = await fetch(`http://localhost:3000/movies/${movieID}`)
+      const response = await fetch(`${ VITE_API_URL }movies/${movieID}`)
       return await response.json()
    }
 )
@@ -13,7 +14,7 @@ export const addReview = createAsyncThunk(
    async ({ datos }) => {
       const { body, movieID } = datos
       const response = await fetch(
-         `http://localhost:3000/comments/new/${movieID}`,
+         `${ VITE_API_URL }comments/new/${movieID}`,
          {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -29,7 +30,7 @@ export const deleteReview = createAsyncThunk(
    async ({ datos }) => {
       const { body, reviewID } = datos
       const response = await fetch(
-         `http://localhost:3000/comments/delete/${reviewID}`,
+         `${ VITE_API_URL }comments/delete/${reviewID}`,
          {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },

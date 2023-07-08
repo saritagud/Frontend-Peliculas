@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+const { VITE_API_URL } = import.meta.env
 
 export const fetchMoviesLastest = createAsyncThunk(
    'latestMovies/fetchMoviesLastest',
    async () => {
       const response = await fetch(
-         'http://localhost:3000/movies/filter/latestMovies'
+         `${ VITE_API_URL }movies/filter/latestMovies`
       )
       return await response.json()
    }
