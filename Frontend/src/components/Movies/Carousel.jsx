@@ -23,7 +23,7 @@ function Carousel() {
         showArrows={true}
         showThumbs={false}
         showStatus={false}
-        className="text-verde dark:bg-slate-50"
+        className="text-verde dark:bg-green-100"
       >
         {status === "loading" ? (
           <div className="fixed bg-black bg-opacity-90 w-full h-screen flex justify-center items-center z-10">
@@ -35,7 +35,7 @@ function Carousel() {
           latestMovies.latestMovies.map((movie) => (
             <section
               key={movie._id}
-              className="bg-fondo  bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-5 sm:mb-14 dark:bg-slate-50"
+              className="bg-fondo  bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-5 sm:mb-14 dark:bg-green-100"
             >
               <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:flex-row xl:w-[40%] xl:gap-8 2xl:w-[30%]">
                 <img
