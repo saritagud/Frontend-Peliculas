@@ -35,21 +35,21 @@ function ModalDeleteReview({ id, deleteAction }) {
 
       {isOpen && (
         <section className="fixed flex justify-center items-center inset-0 backdrop-blur-sm bg-black bg-opacity-30 min-h-screen overflow-scroll">
-          <div className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[60%] xl:w-[50%] text-white flex flex-col gap-4 overflow-auto">
+          <div className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[60%] xl:w-[50%] text-white flex flex-col gap-4 overflow-auto dark:bg-verde2">
             <h1 className="text-[20px] sm:text-2xl text-center md:text-3xl">
               ¿Está seguro/a de eliminar este comentario?
             </h1>
 
             <div className="flex items-center justify-center w-full gap-2">
               <button
-                className="bg-verde p-3 text-xl rounded-xl"
+                className="bg-verde p-3 text-xl rounded-xl dark:bg-white dark:text-black"
                 onClick={() => setIsOpen(!isOpen)}
               >
                 Volver atrás
               </button>
 
               <button
-                className="bg-verde p-3 text-xl rounded-xl 2xl:text-2xl"
+                className="bg-verde p-3 text-xl rounded-xl 2xl:text-2xl dark:bg-white dark:text-black"
                 onClick={deleteAReview}
                 disabled={status === "loading"}
               >

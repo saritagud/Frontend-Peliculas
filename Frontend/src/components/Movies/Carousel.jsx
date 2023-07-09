@@ -23,7 +23,7 @@ function Carousel() {
         showArrows={true}
         showThumbs={false}
         showStatus={false}
-        className="text-verde"
+        className="text-verde dark:bg-slate-50"
       >
         {status === "loading" ? (
           <div className="fixed bg-black bg-opacity-90 w-full h-screen flex justify-center items-center z-10">
@@ -35,15 +35,15 @@ function Carousel() {
           latestMovies.latestMovies.map((movie) => (
             <section
               key={movie._id}
-              className="bg-fondo bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-10 sm:mb-14 "
+              className="bg-fondo  bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-5 sm:mb-14 dark:bg-slate-50"
             >
-              <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:flex-row xl:w-[40%] xl:gap-8 ur:w-[30%]">
+              <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:flex-row xl:w-[40%] xl:gap-8 2xl:w-[30%]">
                 <img
                   src={movie.imagen}
                   className="p-9 rounded-xl  lg:rounded-3xl"
                 />
                 <div className="w-full">
-                  <h1 className="text-white text-center  mb-8 font-Coda -mt-20  text-4xl lg:text-5xl w-full xl:mt-0 ">
+                  <h1 className="text-white text-center  mb-8 font-Coda -mt-20  text-4xl lg:text-5xl w-full xl:mt-0 dark:text-black dark:bg-opacity-30 ">
                     {movie.titulo}
                   </h1>
                   <ButtonDetails movieID={movie._id} />
@@ -55,7 +55,7 @@ function Carousel() {
           latestMovies.latestMovies.map((movie) => (
             <section
               key={movie._id}
-              className="bg-fondo bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-10 sm:mb-14 "
+              className="bg-fondo bg-cover flex flex-col justify-center items-center w-full min-h-[70vh] mb-5 sm:mb-14 dark:bg-slate-50"
             >
               <div className=" flex flex-col justify-center items-center p-1 w-full min-h-[70vh] sm:w-[70%] md:w-[60%] lg:w-[45%] xl:flex-row xl:w-[40%] xl:gap-8 ur:w-[30%]">
                 <img
@@ -63,7 +63,7 @@ function Carousel() {
                   className="p-9 rounded-xl  lg:rounded-3xl"
                 />
                 <div className="w-full">
-                  <h1 className="text-white text-center  mb-8 font-Coda -mt-20  text-4xl lg:text-5xl w-full xl:mt-0 ">
+                  <h1 className="text-white text-center  mb-8 font-Coda -mt-20  text-4xl lg:text-5xl w-full xl:mt-0 dark:text-black">
                     {movie.titulo}
                   </h1>
                   <ButtonDetails movieID={movie._id} />

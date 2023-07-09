@@ -26,7 +26,7 @@ function Landing() {
       <Header />
       <Carousel />
 
-      <section className="flex flex-col justify-center items-center w-full">
+      <section className="flex flex-col justify-center items-center w-full dark:bg-slate-50">
         <Searcher />
         {status === "loading" ? (
           <div className="fixed bg-black bg-opacity-90 w-full h-screen flex justify-center items-center z-10">
@@ -38,7 +38,7 @@ function Landing() {
           <h1 className="text-white text-3xl font-Coda ">No hay películas</h1>
         ) : (
           <>
-            <div className="w-full flex flex-col items-center justify-center md:flex-wrap md:flex-row md:w-[80%]  xl:w-full">
+            <div className="w-full flex flex-col items-center justify-center md:flex-row md:flex-wrap md:w-[80%]  xl:w-full 2xl:items-start">
               {movies.map((movie) => (
                 <CardMovie key={movie._id} data={movie} />
               ))}

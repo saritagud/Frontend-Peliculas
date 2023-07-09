@@ -13,8 +13,8 @@ function Searcher() {
   }
   return (
     <>
-      <section className="flex justify-end items-center w-full p-8">
-        <form className="flex justify-end items-center w-full p-8" onSubmit={handleSubmit}>
+      <section className="flex justify-end items-center w-full p-5">
+        <form className="flex justify-end items-center w-full" onSubmit={handleSubmit}>
           <input
             name="search"
             type="text"

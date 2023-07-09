@@ -11,7 +11,7 @@ import { fetchMovie } from "../../services/movie";
 
 function DetailsMovie() {
   const { movieID } = useParams();
-  const {movie, status} = useSelector((state) => state.movie);
+  const { movie, status } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
   const navegar = useNavigate();
 
@@ -29,7 +29,7 @@ function DetailsMovie() {
     fechaPublicacion,
     comentarios,
   } = movie;
-
+  console.log(comentarios);
   const arrayOfActors = actoresPrincipales?.split(", ");
 
   return (
@@ -46,7 +46,7 @@ function DetailsMovie() {
             }
           >
             <IoMdArrowRoundBack
-              className="text-white text-4xl m-5 text-left xl:text-5xl xl:m-10"
+              className="text-white text-4xl m-5 text-left xl:text-5xl xl:m-10 cursor-pointer"
               onClick={() => navegar("/")}
             />
             <div className="flex flex-col justify-center items-center p-10 w-full h-full text-white md:p-20  lg:p-32 lg:pt-5 xl:flex-row xl:gap-10 xl:p-20 xl:items-start">
@@ -88,12 +88,17 @@ function DetailsMovie() {
             </div>
           </section>
 
-          <section className="flex flex-col justify-center items-center p-5 xl:p-10">
-            <h1 className="text-white text-3xl font-Coda w-full xl:text-5xl">Reviews</h1>
-            <ModalCreateReview/>
-            {comentarios?.map((comentario) => (
-              <Reviews key={comentario._id} review={comentario}/>
-            ))}
+          <section className="flex flex-col justify-center items-center p-5  xl:p-10">
+            <h1 className="text-white text-3xl font-Coda w-full xl:text-5xl">
+              Reviews
+            </h1>
+            <ModalCreateReview />
+
+            <div className="w-full flex flex-col items-center justify-center sm:flex-row sm:flex-wrap sm:gap-5">
+              {comentarios?.map((comentario) => (
+                <Reviews key={comentario._id} review={comentario} />
+              ))}
+            </div>
           </section>
         </div>
       )}

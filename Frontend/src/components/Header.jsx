@@ -21,13 +21,13 @@ function Nav() {
                 className="w-[40%] sm:w-[30%] md:w-[20%] xl:w-[15%]"
               />
               <div className="hidden lg:block w-full">
-                <div className="ml-10 flex justify-end items-end w-full ">
+                <div className=" flex justify-end items-end w-full ">
                   <NavLink
                     to={"/"}
                     className={({ isActive }) =>
                       isActive
-                        ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
-                        : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
+                        ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md  font-Marcellus mr-3 text-center xl:text-3xl "
+                        : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus mr-3 text-center xl:text-xl"
                     }
                   >
                     Inicio
@@ -38,8 +38,8 @@ function Nav() {
                         to={"/login"}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
-                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
+                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus mr-3 text-center xl:text-3xl"
+                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus mr-3 text-center xl:text-3xl"
                         }
                       >
                         Iniciar sesión
@@ -49,8 +49,8 @@ function Nav() {
                         to={"/registro"}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
-                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center xl:text-3xl"
+                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus  text-center mr-3 xl:text-3xl"
+                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus  text-center mr-3 xl:text-3xl"
                         }
                       >
                         Registro
@@ -63,8 +63,8 @@ function Nav() {
                           to={"/administrador"}
                           className={({ isActive }) =>
                             isActive
-                              ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
-                              : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-center"
+                              ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus  text-center mr-3"
+                              : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus text-center mr-3"
                           }
                         >
                           Administrador
@@ -72,7 +72,7 @@ function Nav() {
                       )}
                       <NavLink
                         to={"/login"}
-                        className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left transition-all duration-500"
+                        className="text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus mr-3 text-left transition-all duration-500"
                         onClick={handleSession}
                       >
                         Cerrar Sesión
@@ -144,7 +144,7 @@ function Nav() {
                   to={"/"}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
+                      ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus mr-3 text-left"
                       : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus w-full text-left"
                   }
                 >
