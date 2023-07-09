@@ -38,8 +38,8 @@ function Nav() {
                         to={"/login"}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus mr-3 text-center xl:text-3xl"
-                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus mr-3 text-center xl:text-3xl"
+                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus mr-3 text-center xl:text-xl"
+                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus mr-3 text-center xl:text-xl"
                         }
                       >
                         Iniciar sesión
@@ -49,8 +49,8 @@ function Nav() {
                         to={"/registro"}
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus  text-center mr-3 xl:text-3xl"
-                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus  text-center mr-3 xl:text-3xl"
+                            ? "text-black bg-white/60 hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus  text-center mr-3 "
+                            : "text-white hover:bg-white hover:text-black block px-3 py-2 rounded-md text-2xl font-Marcellus  text-center mr-3"
                         }
                       >
                         Registro
