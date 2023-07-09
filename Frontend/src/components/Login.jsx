@@ -1,7 +1,6 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
-import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/users";
 
@@ -19,15 +18,13 @@ function Login() {
       contraseña: target.contraseña.value,
     };
     dispatch(login(user));
-    
+
     if (status.login == "succeeded") {
-      toast.success("Bienvenida/o").then(() => {});
-      navegar("/").then(() => {});
+      navegar("/");
     }
   };
   return (
     <>
-      <Toaster />
       <Header />
       <section className="flex flex-col justify-center items-center  gap-10 min-h-screen md:gap-14 dark:bg-slate-50 ">
         <img
