@@ -36,8 +36,8 @@ function Dashboard() {
    return (
       <>
          <Header />
-         <section className='min-h-screen flex flex-col items-center p-5 gap-5 w-full sm:p-14 sm:gap-8 lg:p-32 lg:gap-12'>
-            <h1 className='text-white text-3xl font-Coda mt-10 sm:text-4xl lg:text-5xl  '>
+         <section className='min-h-screen flex flex-col items-center p-5 gap-5 w-full sm:p-14 sm:gap-8 lg:p-32 lg:gap-12 dark:bg-slate-50'>
+            <h1 className='text-white text-3xl font-Coda mt-10 sm:text-4xl lg:text-5xl  dark:text-black'>
                Admin
             </h1>
             <div className=' flex justify-end w-full gap-5'>
@@ -62,7 +62,7 @@ function Dashboard() {
                <>
                   <ModalCreate />
                   
-                  <div className='border-2 w-full'></div>
+                  <div className='border-2 w-full dark:border-verde'></div>
 
                   {status === 'loading' ? (
                      <div className='fixed bg-black bg-opacity-90 w-full h-screen flex justify-center items-center z-10'>
@@ -87,6 +87,7 @@ function Dashboard() {
                   />
                </div>
             ) : (
+               
                <ListOfReviews reviews={reviews} />
             )}
          </section>
