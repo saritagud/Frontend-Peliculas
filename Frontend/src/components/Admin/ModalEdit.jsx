@@ -99,10 +99,10 @@ function ModalEdit({ data }) {
 
       {isOpen && (
         <form
-          className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30 min-h-screen overflow-scroll"
+          className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30 min-h-screen overflow-scroll "
           onSubmit={handleSubmit}
         >
-          <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex  items-center flex-col gap-4 m-10 overflow-auto">
+          <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex  items-center flex-col gap-4 m-10 overflow-auto dark:bg-verde2">
             <div className="flex justify-end mb-3 w-full">
               <FaWindowClose
                 className="text-2xl cursor-pointer md:text-3xl"
@@ -187,7 +187,7 @@ function ModalEdit({ data }) {
             />
 
             <button
-              className="bg-verde p-3 text-xl rounded-xl m-8 2xl:text-4xl 2xl:p-5"
+              className="bg-verde p-3 text-xl rounded-xl m-8 2xl:text-4xl 2xl:p-5 dark:bg-white dark:text-black"
               disabled={status === "loading"}
             >
               {status === "loading" ? "Guardando..." : "Guardar"}
