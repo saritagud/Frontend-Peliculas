@@ -52,7 +52,7 @@ function App() {
           path="/administrador"
           element={
             <ProtectedRouter isAllowed={true}>
-              <Dashboard />
+              <Dashboard/>
             </ProtectedRouter>
           }
         />
