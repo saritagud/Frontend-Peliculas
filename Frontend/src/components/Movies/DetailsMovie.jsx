@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import Reviews from "./Reviews";
 import { useEffect } from "react";
-import { fetchMovie } from "../../features/movie/movieSlice";
 import { useParams } from "react-router-dom";
 import { formatearFecha } from "../../logic/funciones";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { InfinitySpin } from "react-loader-spinner";
+import ModalCreateReview from "../Admin/Reviews/ModalCreateReview";
+import { fetchMovie } from "../../services/movie";
 
 function DetailsMovie() {
   const { movieID } = useParams();
-  const movies = useSelector((state) => state.movie.movie);
-  const status = useSelector((state) => state.movie.status);
+  const { movie, status } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
   const navegar = useNavigate();
 
@@ -28,8 +28,8 @@ function DetailsMovie() {
     franquicia,
     fechaPublicacion,
     comentarios,
-  } = movies;
-
+  } = movie;
+  console.log(comentarios);
   const arrayOfActors = actoresPrincipales?.split(", ");
 
   return (
@@ -42,14 +42,14 @@ function DetailsMovie() {
         <div>
           <section
             className={
-              "bg-black flex flex-col justify-start items-start w-full "
+              "bg-black flex flex-col justify-start items-start w-full dark:bg-green-100"
             }
           >
             <IoMdArrowRoundBack
-              className="text-white text-4xl m-5 text-left xl:text-5xl xl:m-10"
+              className="text-white text-4xl m-5 text-left xl:text-5xl xl:m-10 cursor-pointer dark:text-black"
               onClick={() => navegar("/")}
             />
-            <div className="flex flex-col justify-center items-center p-10 w-full h-full text-white md:p-20  lg:p-32 lg:pt-5 xl:flex-row xl:gap-10 xl:p-20 xl:items-start">
+            <div className="flex flex-col justify-center items-center p-10 w-full h-full text-white md:p-20  lg:p-32 lg:pt-5 xl:flex-row xl:gap-10 xl:p-20 xl:items-start dark:text-black">
               <img
                 src={imagen}
                 className="rounded-xl sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[35%]"
@@ -88,11 +88,17 @@ function DetailsMovie() {
             </div>
           </section>
 
-          <section className="flex flex-col justify-center items-center p-5 xl:p-10">
-            <h1 className="text-white text-3xl font-Coda w-full xl:text-5xl">Reviews</h1>
-            {comentarios?.map((comentario) => (
-              <Reviews key={comentario._id} review={comentario} />
-            ))}
+          <section className="flex flex-col justify-center items-center p-5  xl:p-10 dark:bg-slate-50">
+            <h1 className="text-white text-3xl font-Coda w-full xl:text-5xl dark:text-black">
+              Reviews
+            </h1>
+            <ModalCreateReview />
+
+            <div className="w-full flex flex-col items-center justify-center sm:flex-row sm:flex-wrap sm:gap-5">
+              {comentarios?.map((comentario) => (
+                <Reviews key={comentario._id} review={comentario} />
+              ))}
+            </div>
           </section>
         </div>
       )}

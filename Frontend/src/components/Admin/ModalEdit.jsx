@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { FaPencilAlt, FaWindowClose } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { editMovie } from "../../features/movies/moviesSlice";
 import PropTypes from "prop-types";
 import { toast, Toaster } from "react-hot-toast";
+import { formatearFechaInput } from "../../logic/funciones";
+import { editMovie } from "../../services/movies";
 
 function ModalEdit({ data }) {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
+  const token = JSON.parse(localStorage.getItem("token"))
+  const fechaFormateada = formatearFechaInput(data.fechaPublicacion)
   const [movie, setMovie] = useState({
     image: data.imagen,
     titulo: data.titulo,
@@ -16,7 +19,7 @@ function ModalEdit({ data }) {
     actoresPrincipales: data.actoresPrincipales,
     directores: data.directores,
     franquicia: data.franquicia || "",
-    fechaPublicacion: data.fechaPublicacion,
+    fechaPublicacion: fechaFormateada,
   });
 
   const status = useSelector((state) => state.movies.status);
@@ -77,6 +80,7 @@ function ModalEdit({ data }) {
     const datos = {
       body,
       movieID: data._id,
+      token
     };
     dispatch(editMovie({ datos }));
     if (status == "succeeded") {
@@ -95,10 +99,10 @@ function ModalEdit({ data }) {
 
       {isOpen && (
         <form
-          className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30 min-h-screen overflow-scroll"
+          className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30 min-h-screen overflow-scroll "
           onSubmit={handleSubmit}
         >
-          <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex  items-center flex-col gap-4 m-10 overflow-auto">
+          <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex  items-center flex-col gap-4 m-10 overflow-auto dark:bg-verde2">
             <div className="flex justify-end mb-3 w-full">
               <FaWindowClose
                 className="text-2xl cursor-pointer md:text-3xl"
@@ -115,7 +119,7 @@ function ModalEdit({ data }) {
 
             <label className="w-full text-xl md:text-2xl 2xl:text-3xl">Titulo</label>
             <input
-              className="w-full rounded-xl p-2 text-white text-lg md:text-xl 2xl:text-2xl 2xl:p-4"
+              className="w-full rounded-xl p-2 text-black text-lg md:text-xl 2xl:text-2xl 2xl:p-4"
               type="text"
               name="titulo"
               value={movie.titulo}
@@ -183,7 +187,7 @@ function ModalEdit({ data }) {
             />
 
             <button
-              className="bg-verde p-3 text-xl rounded-xl m-8 2xl:text-4xl 2xl:p-5"
+              className="bg-verde p-3 text-xl rounded-xl m-8 2xl:text-4xl 2xl:p-5 dark:bg-white dark:text-black"
               disabled={status === "loading"}
             >
               {status === "loading" ? "Guardando..." : "Guardar"}

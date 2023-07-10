@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchMoviesLastest } from "../../services/latestMovies";
 
 export const latestMoviesSlice = createSlice({
   name: "latestMovies",
@@ -34,13 +35,5 @@ export const latestMoviesSlice = createSlice({
 
 // Por si llega hacer falta un action ⬇️
 // export const {  } = latestMoviesSlice.actions
-
-export const fetchMoviesLastest = createAsyncThunk(
-  "latestMovies/fetchMoviesLastest",
-  async () => {
-    const response = await fetch("http://localhost:3000/movies/filter/latestMovies");
-    return await response.json();
-  }
-);
 
 export default latestMoviesSlice.reducer;

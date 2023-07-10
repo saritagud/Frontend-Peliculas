@@ -1,13 +1,14 @@
 import { FaWindowClose } from "react-icons/fa";
 import { useState } from "react";
-import { addMovie } from "../../features/movies/moviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, Toaster } from "react-hot-toast";
+import { addMovie } from "../../services/movies";
 
 function ModalCreate() {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const status = useSelector((state) => state.movies.status);
+  const token = JSON.parse(localStorage.getItem("token"))
 
   const [movie, setMovie] = useState({
     image: null,
@@ -68,9 +69,12 @@ function ModalCreate() {
     body.append("franquicia", movie.franquicia);
     body.append("fechaPublicacion", movie.fechaPublicacion);
 
-    dispatch(addMovie(body));
+    const datos = {
+      data: body,
+      token,
+    };
+    dispatch(addMovie({ datos }));
     if (status == "succeeded") {
-      toast.success("Se ha creado correctamente");
       setIsOpen(false);
     }
   };
@@ -90,7 +94,7 @@ function ModalCreate() {
           className="fixed flex justify-center items-start inset-0 backdrop-blur-sm bg-black bg-opacity-30  min-h-screen overflow-scroll"
           onSubmit={handleSubmit}
         >
-          <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex flex-col items-center gap-4 m-8 overflow-auto font-Marcellus">
+          <section className="bg-fondo rounded-xl p-5 w-[90%] sm:w-[70%] lg:w-[50%] xl:w-[40%] text-white flex flex-col items-center gap-4 m-8 overflow-auto font-Marcellus dark:bg-verde2">
             <div className="flex justify-end mb-3 w-full ">
               <FaWindowClose
                 className="text-2xl cursor-pointer md:text-3xl"
@@ -178,7 +182,7 @@ function ModalCreate() {
             />
 
             <button
-              className="bg-verde p-3 text-xl rounded-xl m-8 md:text-2xl md:w-[40%] 2xl:text-4xl 2xl:p-5"
+              className="bg-verde p-3 text-xl rounded-xl m-8 md:text-2xl md:w-[40%] 2xl:text-3xl 2xl:p-5 dark:bg-white dark:text-black"
               disabled={status === "loading"}
             >
               {status === "loading" ? "Agregando..." : "Agregar"}

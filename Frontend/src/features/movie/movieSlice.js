@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { addReview, deleteReview, fetchMovie } from "../../services/movie";
 
 export const movieSlice = createSlice({
   name: "movie",
@@ -10,15 +11,74 @@ export const movieSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(fetchMovie.pending, (state) => {
-      state.status = "loading";
+      return {
+        ...state,
+        status: 'loading'
+      }
     });
     builder.addCase(fetchMovie.fulfilled, (state, action) => {
-      state.status = "succeeded";
-      state.movie = action.payload;
+      return {
+        ...state,
+        status: "succeeded",
+        movie: action.payload
+      }
     });
     builder.addCase(fetchMovie.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
+      return {
+        ...state,
+        status: 'failed',
+        error: action.error.message
+      }
+    });
+
+    builder.addCase(addReview.pending, (state) => {
+      return {
+        ...state,
+        status: 'loading'
+      }
+    });
+    builder.addCase(addReview.fulfilled, (state, action) => {
+      return {
+        ...state,
+        status: "succeeded",
+        movie: {
+          ...state.movie,
+          comentarios: [...state.movie.comentarios, action.payload.newComment]
+        }
+      }
+    });
+    builder.addCase(addReview.rejected, (state, action) => {
+      return {
+        ...state,
+        status: 'failed',
+        error: action.error.message
+      }
+    });
+    
+    builder.addCase(deleteReview.pending, (state) => {
+      return {
+        ...state,
+        status: 'loading'
+      }
+    });
+    builder.addCase(deleteReview.fulfilled, (state, action) => {
+      return {
+        ...state,
+        status: "succeeded",
+        movie: {
+          ...state.movie,
+          comentarios: state.movie.comentarios.filter(
+            (review) => review._id !== action.payload
+          ),
+        }
+      }
+    })
+    builder.addCase(deleteReview.rejected, (state, action) => {
+      return {
+        ...state,
+        status: 'failed',
+        error: action.error.message
+      }
     });
   },
 });
@@ -26,11 +86,4 @@ export const movieSlice = createSlice({
 // Por si llega hacer falta un action ⬇️
 // export const {  } = movieSlice.actions
 
-export const fetchMovie = createAsyncThunk(
-  "movie/fetchMovies",
-  async (movieID) => {
-    const response = await fetch(`http://localhost:3000/movies/${movieID}`);
-    return await response.json();
-  }
-);
 export default movieSlice.reducer;
